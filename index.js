@@ -2,7 +2,6 @@ import './index.css';
 import liff from '@line/liff'
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log(process.env.LIFF_ID )
   liff
     .init({ liffId: process.env.LIFF_ID })
     .then(() => {
@@ -12,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		    console.log("Please login");
 		    liff.login({ redirectUri: process.env.LIFF_URL });
 		} else {
+            console.log("Successfully logged in");
 		    if ( liff.isApiAvailable('shareTargetPicker')) {
+                let sample_message = require("./sample_message.json");
 		        liff.shareTargetPicker(sample_message)
 				.then(function (res) {
 					if (res) {
