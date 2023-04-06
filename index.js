@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else {
             console.log("Successfully logged in");
 		    if ( liff.isApiAvailable('shareTargetPicker')) {
+                console.log('shareTargetPicker is available');
                 let sample_message = require("./sample_message.json");
 		        liff.shareTargetPicker(sample_message)
 				.then(function (res) {
@@ -25,7 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				  .catch(function (error) {
 					console.log("something wrong happen");
 				  });
-		    }
+		    } else {
+                console.log('shareTargetPicker is NOT available');
+            }
 		}
     })
     .catch((error) => {
