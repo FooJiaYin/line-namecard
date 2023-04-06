@@ -1,5 +1,6 @@
 import Head from "next/head";
 import packageJson from "../package.json";
+import * as liff from "../api/line/liff"
 
 export default function Home(props) {
   /** You can access to liff and liffError object through the props.
@@ -42,12 +43,12 @@ export default function Home(props) {
         </div>
         <div className="home__buttons">
           <a
-            href="https://developers.line.biz/en/docs/liff/developing-liff-apps/"
+            onClick={() => liff.login()}
             target="_blank"
             rel="noreferrer"
             className="home__buttons__button button--primary"
           >
-            LIFF Documentation
+            Login
           </a>
           <a
             href="https://liff-playground.netlify.app/"

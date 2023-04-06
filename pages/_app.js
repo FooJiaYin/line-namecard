@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import LiffContext from "../context/liffContext";
+import * as liff from "../api/line/liff.js";
 import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
@@ -7,32 +9,21 @@ function MyApp({ Component, pageProps }) {
 
   // Execute liff.init() when the app is initialized
   useEffect(() => {
-    // to avoid `window is not defined` error
-    import("@line/liff").then((liff) => {
-      console.log("start liff.init()...");
-      liff
-        .init({ liffId: process.env.LIFF_ID })
-        .then(() => {
-          console.log("liff.init() done");
+    liff
+      .init()
+      .then(({liff, liffError}) => {
           setLiffObject(liff);
-        })
-        .catch((error) => {
-          console.log(`liff.init() failed: ${error}`);
-          if (!process.env.liffId) {
-            console.info(
-              "LIFF Starter: Please make sure that you provided `LIFF_ID` as an environmental variable."
-            );
-          }
-          setLiffError(error.toString());
-        });
-    });
+          setLiffError(liffError);
+      })
   }, []);
 
   // Provide `liff` object and `liffError` object
   // to page component as property
-  pageProps.liff = liffObject;
-  pageProps.liffError = liffError;
-  return <Component {...pageProps} />;
+  return (
+    <LiffContext.Provider value={liffObject}>
+      <Component {...pageProps} />
+    </LiffContext.Provider>
+  );
 }
 
 export default MyApp;
