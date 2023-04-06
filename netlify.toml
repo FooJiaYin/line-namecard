@@ -1,6 +1,6 @@
 [build]
   command = "yarn install && yarn build"
-  publish = "dist"
+  publish = ".next"
 
 [template.environment]
   LIFF_ID = "Your LIFF ID which is aquired from LINE Dev Center"
