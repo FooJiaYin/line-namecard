@@ -1,6 +1,6 @@
 import "../styles/globals.css";
-import LiffContext from "../context/liffContext";
-import * as liff from "../api/line/liff.js";
+import { LiffProvider } from '../context/LiffContext';
+// import { initLiff } from "../api/line/liff";
 import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
@@ -8,21 +8,19 @@ function MyApp({ Component, pageProps }) {
   const [liffError, setLiffError] = useState(null);
 
   // Execute liff.init() when the app is initialized
-  useEffect(() => {
-    liff
-      .init()
-      .then(({liff, liffError}) => {
-          setLiffObject(liff);
-          setLiffError(liffError);
-      })
-  }, []);
+  // useEffect(() => {
+  //   initLiff().then(({liff, liffError}) => {
+  //       setLiffObject(liff);
+  //       setLiffError(liffError);
+  //   })
+  // }, []);
 
   // Provide `liff` object and `liffError` object
   // to page component as property
   return (
-    <LiffContext.Provider value={liffObject}>
+    <LiffProvider value={liffObject}>
       <Component {...pageProps} />
-    </LiffContext.Provider>
+    </LiffProvider>
   );
 }
 

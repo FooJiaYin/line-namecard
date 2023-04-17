@@ -1,14 +1,25 @@
+import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
+import { useContext, useEffect } from "react";
+import { login } from "../api/line/liff";
+import { useLiff } from "../context/LiffContext";
 import packageJson from "../package.json";
-import * as liff from "../api/line/liff"
 
-export default function Home(props) {
+export default function Login(props) {
   /** You can access to liff and liffError object through the props.
    *  const { liff, liffError } = props;
    *  console.log(liff.getVersion());
    *
    *  Learn more about LIFF API documentation (https://developers.line.biz/en/reference/liff)
    **/
+  const { error, isLoggedIn, isReady, liff } = useLiff();
+  
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    router.replace('/home');
+  }, [liff, isLoggedIn]);
+
   return (
     <div>
       <Head>
@@ -43,7 +54,7 @@ export default function Home(props) {
         </div>
         <div className="home__buttons">
           <a
-            onClick={() => liff.login()}
+            onClick={liff.login}
             target="_blank"
             rel="noreferrer"
             className="home__buttons__button button--primary"
