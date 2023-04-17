@@ -26,25 +26,23 @@ export default function Login(props) {
         <title>LIFF Starter</title>
       </Head>
       <div className="home">
+        <img src="/images/logo.png" alt="logo" className="home__logo" />
         <h1 className="home__title">
-          Welcome to <br />
-          <a
-            className="home__title__link"
-            href="https://developers.line.biz/en/docs/liff/overview/"
-          >
-            LIFF Starter!
-          </a>
+          MINE Card<br />
         </h1>
+        <p className="home__description">
+        Create and share your namecard in LINE within minutes
+        </p>
         <div className="home__badges">
           <span className="home__badges__badge badge--primary">
-            LIFF Starter
+            MINE card
           </span>
           <span className="home__badges__badge badge--secondary">nextjs</span>
           <span className="home__badges__badge badge--primary">
             {packageJson.version}
           </span>
           <a
-            href="https://github.com/line/line-liff-v2-starter"
+            href="https://github.com/foojiayin/line-namecard"
             target="_blank"
             rel="noreferrer"
             className="home__badges__badge badge--secondary"
@@ -62,20 +60,20 @@ export default function Login(props) {
             {isLoggedIn ? "Hello" : "Login" }
           </a>
           <a
-            href="https://liff-playground.netlify.app/"
+            href="/create"
             target="_blank"
             rel="noreferrer"
             className="home__buttons__button button--tertiary"
           >
-            LIFF Playground
+            Create
           </a>
           <a
-            href="https://developers.line.biz/console/"
+            href="/about"
             target="_blank"
             rel="noreferrer"
             className="home__buttons__button button--secondary"
           >
-            LINE Developers Console
+            About us
           </a>
         </div>
       </div>
