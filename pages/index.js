@@ -12,7 +12,7 @@ export default function Login(props) {
    *
    *  Learn more about LIFF API documentation (https://developers.line.biz/en/reference/liff)
    **/
-  const { error, isLoggedIn, isReady, liff } = useLiff();
+  const { isLoggedIn, liff } = useLiff();
   const router = useRouter();
 
   useEffect(() => {
