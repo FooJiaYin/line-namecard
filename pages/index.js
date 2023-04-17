@@ -1,4 +1,4 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { login } from "../api/line/liff";
@@ -13,7 +13,7 @@ export default function Login(props) {
    *  Learn more about LIFF API documentation (https://developers.line.biz/en/reference/liff)
    **/
   const { error, isLoggedIn, isReady, liff } = useLiff();
-  
+  const router = useRouter();
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -54,12 +54,12 @@ export default function Login(props) {
         </div>
         <div className="home__buttons">
           <a
-            onClick={liff.login}
+            onClick={() => liff.login()}
             target="_blank"
             rel="noreferrer"
             className="home__buttons__button button--primary"
           >
-            Login
+            {isLoggedIn ? "Hello" : "Login" }
           </a>
           <a
             href="https://liff-playground.netlify.app/"
