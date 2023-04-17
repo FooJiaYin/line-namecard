@@ -2,14 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLiff } from "../context/LiffContext";
 export default function Home() {
   const { isLoggedIn, liff } = useLiff();
-
-  const sendExampleMessage = () => {
-    if (isLoggedIn) {
-      sendFlexMessage();
-    } else {
-      liff.login();
-    }
-  };
   
   return (
     <div>
