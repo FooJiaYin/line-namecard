@@ -17,7 +17,7 @@ export default function Login(props) {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    router.replace('/home');
+    router.replace('/create');
   }, [liff, isLoggedIn]);
 
   return (

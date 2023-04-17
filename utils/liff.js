@@ -54,12 +54,11 @@ export async function login() {
   // }
 }
 
-export async function sendFlexMessage() {
+export async function sendFlexMessage(message) {
   if (!liff) await init();
-  
+
   if (liff.isApiAvailable("shareTargetPicker")) {
     console.log("shareTargetPicker is available");
-    let message = require("./sample_message.json");
     try {
       let res = await liff.shareTargetPicker(message);
       if (res) {

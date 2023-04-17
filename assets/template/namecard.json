@@ -19,11 +19,11 @@
                   "aspectMode": "fit",
                   "size": "full",
                   "type": "image",
-                  "url": "https://i0.wp.com/dreamcube.tw/wp-content/uploads/2023/03/%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%B4%94LOGO%E9%80%8F%E6%98%8E%E5%BA%95-1.png",
+                  "url": "${data.logo}",
                   "action": {
                     "label": "action",
                     "type": "uri",
-                    "uri": "https://www.program.com.tw?openExternalBrowser=1"
+                    "uri": "${data.website}"
                   }
                 },
                 {
@@ -39,20 +39,20 @@
                 {
                   "margin": "xl",
                   "size": "xxs",
-                  "text": "執行長 CEO",
+                  "text": "${data.title} ${data.titleEN}",
                   "type": "text",
                   "wrap": true
                 },
                 {
                   "size": "lg",
-                  "text": "李孟一",
+                  "text": "${data.name}",
                   "type": "text",
                   "weight": "bold",
                   "wrap": true
                 },
                 {
                   "size": "lg",
-                  "text": "LIME01",
+                  "text": "${data.nameEN}",
                   "type": "text",
                   "weight": "regular",
                   "wrap": true
@@ -68,13 +68,13 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "夢想一號魔術方塊學院",
+                  "text": "${data.company}",
                   "weight": "bold",
                   "size": "lg"
                 },
                 {
                   "type": "text",
-                  "text": "Dream One Cube Academy",
+                  "text": "${data.companyEN}",
                   "weight": "bold"
                 },
                 {
@@ -114,22 +114,12 @@
                       "contents": [
                         {
                           "size": "sm",
-                          "text": "0963237969",
+                          "text": "${data.phone}",
                           "type": "text",
                           "action": {
                             "label": "action",
                             "type": "uri",
-                            "uri": "tel:04-23692699"
-                          }
-                        },
-                        {
-                          "size": "sm",
-                          "text": "02-77566126",
-                          "type": "text",
-                          "action": {
-                            "label": "action",
-                            "type": "uri",
-                            "uri": "tel:04-23692699"
+                            "uri": "tel:${data.phone}"
                           }
                         }
                       ]
@@ -138,19 +128,19 @@
                 },
                 {
                   "margin": "lg",
-                  "text": "hi@dreamcube.tw",
+                  "text": "${data.email}",
                   "type": "text",
                   "wrap": true,
                   "action": {
                     "label": "action",
                     "type": "uri",
-                    "uri": "mailto:apple@g.com"
+                    "uri": "${data.email}"
                   }
                 },
                 {
                   "margin": "lg",
                   "size": "xxs",
-                  "text": "40757 台中市西屯區市政路402號7樓",
+                  "text": "${data.address}",
                   "type": "text",
                   "action": {
                     "label": "action",
@@ -161,7 +151,7 @@
                 {
                   "margin": "none",
                   "size": "xxs",
-                  "text": "7F, No.402, Shizheng Rd., Xitun Dist., Taichung City 407, Taiwan",
+                  "text": "${data.addressEN}",
                   "type": "text",
                   "wrap": true,
                   "action": {
@@ -172,7 +162,7 @@
                 },
                 {
                   "size": "xxs",
-                  "text": "統一編號  90468673",
+                  "text": "統一編號 ${data.taxId}",
                   "type": "text"
                 }
               ]
