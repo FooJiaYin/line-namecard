@@ -1,34 +1,8 @@
-import React from "react";
-
 // const LiffContext = React.createContext(null);
 
 import { createContext, useContext } from "react";
-
 import { createElement, useEffect, useState } from "react";
-
-const getLiff = async () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore: This is an issue of @line/liff
-  return window.liff ?? (await import("@line/liff")).default;
-};
-
-const registerLiffPlugin = (liff, plugin) => {
-  Array.isArray(plugin) ? liff.use(...plugin) : liff.use(plugin);
-};
-
-const getInitializedLiff = async ({
-  plugins = [],
-  callback = () => {},
-  ...liffConfig
-}) => {
-  const liff = await getLiff();
-
-  plugins.forEach((plugin) => registerLiffPlugin(liff, plugin));
-  await liff.init(liffConfig);
-  await callback(liff);
-
-  return liff;
-};
+import liff, { initLiff } from "../api/line/liff";
 
 export const useLoginStateManager = (liff) => {
   const {
@@ -69,7 +43,7 @@ const createLiffProvider = (context) => {
     useEffect(() => {
       (async () => {
         try {
-          setLiff(await getInitializedLiff(rest));
+          setLiff(await initLiff(rest));
           setIsReady(true);
         } catch (e) {
           setError(e);
@@ -91,7 +65,7 @@ export const createLiffContext = () => {
   const context = createContext({
     isLoggedIn: false,
     isReady: false,
-    liff: {},
+    liff: liff,
   });
   context.displayName = "LiffContext";
 
@@ -102,8 +76,6 @@ export const createLiffContext = () => {
   };
 };
 
-const { LiffConsumer, LiffProvider, useLiff } = createLiffContext();
-
-export { LiffConsumer, LiffProvider, useLiff };
+export const { LiffConsumer, LiffProvider, useLiff } = createLiffContext();
 
 // export default LiffContext;

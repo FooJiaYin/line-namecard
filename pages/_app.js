@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   // Provide `liff` object and `liffError` object
   // to page component as property
   return (
-    <LiffProvider liffId={process.env.LIFF_ID}>
+    <LiffProvider>
       <Component {...pageProps} />
     </LiffProvider>
   );

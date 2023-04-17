@@ -1,17 +1,38 @@
-let liffInstance;
+let liff;
 
-export async function init() {
-    
-  if (liffInstance) {
-    return liffInstance;
-  }
+const liffConfig = {
+  liffId: process.env.LIFF_ID,
+};
+
+const getLiff = async () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: This is an issue of @line/liff
+  return window.liff ?? (await import("@line/liff")).default;
+};
+
+const registerLiffPlugin = (liff, plugin) => {
+  Array.isArray(plugin) ? liff.use(...plugin) : liff.use(plugin);
+};
+
+const getInitializedLiff = async ({
+  plugins = [],
+  callback = () => {},
+  ...rest
+}) => {
+  const liff = await getLiff();
+
+  plugins.forEach((plugin) => registerLiffPlugin(liff, plugin));
+  await liff.init(liffConfig);
+  await callback(liff);
+
+  return liff;
+};
+
+export async function initLiff(props) {
     console.log("start liff.init()...");
     try {
-        let liff = await import("@line/liff");
-        await liff.init({ liffId: process.env.LIFF_ID });
-        console.log("liff.init() done");
-        liffInstance = liff;
-        return { liff: liff };
+        liff = await getInitializedLiff(props);
+        return liff;
     } catch (error) {
         console.log(`liff.init() failed: ${error}`);
         if (!process.env.LIFF_ID) {
@@ -22,18 +43,19 @@ export async function init() {
 }
 
 export async function login() {
-  const liff = await init();
-    
-  if (!liff.isLoggedIn()) {
-    console.log("Please login");
-    liff.login({ redirectUri: process.env.LIFF_URL });
-  } else {
-    console.log("Successfully logged in");
-  }
+  if (!liff) await init();
+  
+  liff.is = () => true;
+  // if (!liff.isLoggedIn()) {
+  //   console.log("Please login");
+  //   liff.login({ redirectUri: process.env.LIFF_URL });
+  // } else {
+  //   console.log("Successfully logged in");
+  // }
 }
 
-export async function sendMessage() {
-  const liff = await init();
+export async function sendFlexMessage() {
+  if (!liff) await init();
 
   if (liff.isApiAvailable("shareTargetPicker")) {
     console.log("shareTargetPicker is available");
@@ -52,3 +74,5 @@ export async function sendMessage() {
     console.log("shareTargetPicker is NOT available");
   }
 }
+
+export default liff;
