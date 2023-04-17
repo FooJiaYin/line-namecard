@@ -25,8 +25,8 @@ export default function Create() {
   });
 
   const send = () => {
-    const message = generateMessage("namecard", data);
     if (isLoggedIn) {
+      const message = generateMessage("namecard", data);
       sendFlexMessage(message);
     } else {
       liff.login();

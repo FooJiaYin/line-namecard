@@ -121,6 +121,16 @@
                             "type": "uri",
                             "uri": "tel:${data.phone}"
                           }
+                        },
+                        {
+                          "size": "sm",
+                          "text": "${data.phone}",
+                          "type": "text",
+                          "action": {
+                            "label": "action",
+                            "type": "uri",
+                            "uri": "tel:${data.phone}"
+                          }
                         }
                       ]
                     }
@@ -134,7 +144,7 @@
                   "action": {
                     "label": "action",
                     "type": "uri",
-                    "uri": "${data.email}"
+                    "uri": "mailto:${data.email}"
                   }
                 },
                 {
