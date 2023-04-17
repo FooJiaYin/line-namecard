@@ -1,8 +1,8 @@
-# LIFF Starter
+# MINE Card
 
-LIFF Starter is a good starter template can help you understand how to integrate LIFF into your own development environment.
+Create and share your namecard in LINE within minutes.
 
-You can check the source code and modify it to implement some cool stuff with LIFF API.
+Build with LIFF, NextJS and Firebase.
 
 ## Getting Started
 
@@ -13,3 +13,6 @@ npm run dev
 # or
 yarn dev
 ```
+## Acknowledgments
+- https://github.com/epaew/react-liff/
+- https://github.com/PamornT/flex2html
