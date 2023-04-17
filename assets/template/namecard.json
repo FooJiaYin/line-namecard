@@ -17,7 +17,8 @@
               "contents": [
                 {
                   "aspectMode": "fit",
-                  "size": "full",
+                  "size": "md",
+                  "align": "start",
                   "type": "image",
                   "url": "${data.logo}",
                   "action": {
