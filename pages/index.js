@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
-import { login } from "../api/line/liff";
+import { login } from "../utils/liff";
 import { useLiff } from "../context/LiffContext";
 import packageJson from "../package.json";
 

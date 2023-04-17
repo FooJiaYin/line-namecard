@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from "react";
 import { createElement, useEffect, useState } from "react";
-import liff, { initLiff } from "../api/line/liff";
+import liff, { initLiff } from "../utils/liff";
 
 export const useLoginStateManager = (liff) => {
   const {
