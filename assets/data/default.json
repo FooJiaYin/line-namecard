@@ -1,0 +1,18 @@
+{
+    "company": "公司名稱",
+    "companyEN": "Company Name",
+    "logo": "/images/background/sample-logo.png",
+    "name": "你的名字",
+    "nameEN": "Your Name",
+    "title": "你的職稱",
+    "titleEN": "Your Title",
+    "email": "example@mail.com",
+    "phone": "0123456789",
+    "address": "你的地址",
+    "addressEN": "Your Address",
+    "website": "https://yourwebsite.com",
+    "taxId": "12345678",
+    "textColor": "#606060",
+    "leftFlex": 1,
+    "rightFlex": 2
+}

@@ -62,7 +62,7 @@ strong {
 .LySlider .lyInner {
     display: -webkit-box;
     display: flex;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .LySlider .lyInner::after {
@@ -177,7 +177,7 @@ strong {
 .LyGi .T1 {
     border-radius: 5px;
     max-width: 500px;
-    margin: 0 7px;
+    margin: 0;
 }
 
 .LyMe .T1 {
@@ -834,7 +834,7 @@ strong {
     height: 1.4em;
 }
 
-.MdTxt.ExWrap p {
+.MdTxt.ExWrap {
     text-overflow: clip;
     word-wrap: break-word;
     white-space: normal;
@@ -844,11 +844,11 @@ strong {
     color: #aaa;
 }
 
-.MdTxt.ExAlgC p {
+.ExAlgC {
     text-align: center;
 }
 
-.MdTxt.ExAlgE p {
+.ExAlgE p {
     text-align: end;
 }
 
@@ -1255,11 +1255,11 @@ strong {
 }
 
 .ExMgnLLg {
-    /* margin-left: 12px !important; */
+    margin-left: 12px !important;
 }
 
 .ExMgnLXl {
-    /* margin-left: 16px !important; */
+    margin-left: 16px !important;
 }
 
 .ExMgnLXXl {

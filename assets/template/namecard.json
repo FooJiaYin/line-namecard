@@ -1,204 +1,217 @@
 [
-    {
-      "type": "flex",
-      "altText": "this is a flex message",
-      "contents": {
-        "type": "bubble",
-        "size": "giga",
-        "body": {
-          "layout": "horizontal",
-          "paddingAll": "20px",
-          "type": "box",
-          "contents": [
-            {
-              "flex": 314,
-              "layout": "vertical",
-              "type": "box",
-              "contents": [
-                {
-                  "aspectMode": "fit",
-                  "size": "md",
-                  "align": "start",
-                  "type": "image",
-                  "url": "${data.logo}",
-                  "action": {
-                    "label": "action",
-                    "type": "uri",
-                    "uri": "${data.website}"
-                  }
-                },
-                {
-                  "flex": 1,
-                  "layout": "vertical",
-                  "type": "box",
-                  "contents": [
-                    {
-                      "type": "filler"
+  {
+    "type": "flex",
+    "altText": "this is a flex message",
+    "contents": {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "0px",
+        "contents": [
+          {
+            "type": "image",
+            "url": "${data.backgroundUrl}",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "size": "full",
+            "aspectRatio": "17:10"
+          },
+          {
+            "layout": "horizontal",
+            "paddingAll": "30px",
+            "width": "100%",
+            "height": "100%",
+            "alignItems": "center",
+            "type": "box",
+            "position": "absolute",
+            "backgroundColor": "${data.backgroundColor}",
+            "contents": [
+              {
+                "flex": "${data.leftFlex}",
+                "layout": "vertical",
+                "type": "box",
+                "contents": [
+                  {
+                    "aspectMode": "fit",
+                    "size": "md",
+                    "align": "center",
+                    "type": "image",
+                    "url": "${data.logo}",
+                    "action": {
+                      "label": "action",
+                      "type": "uri",
+                      "uri": "${data.website}"
                     }
-                  ]
-                },
-                {
-                  "margin": "xl",
-                  "size": "xxs",
-                  "text": "${data.title} ${data.titleEN}",
-                  "type": "text",
-                  "wrap": true
-                },
-                {
-                  "size": "lg",
-                  "text": "${data.name}",
-                  "type": "text",
-                  "weight": "bold",
-                  "wrap": true
-                },
-                {
-                  "size": "lg",
-                  "text": "${data.nameEN}",
-                  "type": "text",
-                  "weight": "regular",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "flex": 624,
-              "layout": "vertical",
-              "margin": "xl",
-              "spacing": "sm",
-              "type": "box",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "${data.company}",
-                  "weight": "bold",
-                  "size": "lg"
-                },
-                {
-                  "type": "text",
-                  "text": "${data.companyEN}",
-                  "weight": "bold"
-                },
-                {
-                  "layout": "horizontal",
-                  "margin": "lg",
-                  "spacing": "md",
-                  "type": "box",
-                  "contents": [
-                    {
-                      "flex": 0,
-                      "layout": "vertical",
-                      "type": "box",
-                      "contents": [
-                        {
-                          "align": "center",
-                          "color": "#E2231A",
-                          "flex": 0,
-                          "size": "sm",
-                          "text": "M",
-                          "type": "text",
-                          "weight": "bold"
-                        },
-                        {
-                          "align": "center",
-                          "color": "#E2231A",
-                          "flex": 0,
-                          "size": "sm",
-                          "text": "T",
-                          "type": "text",
-                          "weight": "bold"
-                        }
-                      ]
-                    },
-                    {
-                      "layout": "vertical",
-                      "type": "box",
-                      "contents": [
-                        {
-                          "size": "sm",
-                          "text": "${data.phone}",
-                          "type": "text",
-                          "action": {
-                            "label": "action",
-                            "type": "uri",
-                            "uri": "tel:${data.phone}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "${data.company}",
+                    "color": "${data.companyColor}",
+                    "weight": "bold",
+                    "size": "xs",
+                    "align": "center"
+                  },
+                  {
+                    "type": "text",
+                    "text": "${data.companyEN}",
+                    "color": "${data.companyColor}",
+                    "size": "xxs",
+                    "align": "center"
+                  }
+                ]
+              },
+              {
+                "flex": "${data.rightFlex}",
+                "layout": "vertical",
+                "margin": "30px",
+                "spacing": "sm",
+                "type": "box",
+                "contents": [
+                  {
+                    "size": "xxs",
+                    "text": "${data.title} ${data.titleEN}",
+                    "type": "text",
+                    "color": "${data.textColor}",
+                    "wrap": true
+                  },
+                  {
+                    "size": "lg",
+                    "text": "${data.name} ${data.nameEN}",
+                    "type": "text",
+                    "weight": "bold",
+                    "color": "${data.nameColor}",
+                    "wrap": true
+                  },
+                  {
+                    "layout": "horizontal",
+                    "margin": "lg",
+                    "spacing": "md",
+                    "type": "box",
+                    "contents": [
+                      {
+                        "flex": 0,
+                        "layout": "vertical",
+                        "type": "box",
+                        "contents": [
+                          {
+                            "align": "center",
+                            "flex": 0,
+                            "size": "sm",
+                            "text": "📞&#xFE0E;",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "weight": "bold"
+                          },
+                          {
+                            "align": "center",
+                            "flex": 0,
+                            "size": "sm",
+                            "text": "✉",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "weight": "bold"
+                          },
+                          {
+                            "align": "center",
+                            "flex": 0,
+                            "size": "sm",
+                            "text": "🌐&#xFE0E;",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "weight": "bold"
+                          },
+                          {
+                            "align": "center",
+                            "flex": 0,
+                            "size": "sm",
+                            "text": "🏠&#xFE0E;",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "weight": "bold"
                           }
-                        },
-                        {
-                          "size": "sm",
-                          "text": "${data.phone}",
-                          "type": "text",
-                          "action": {
-                            "label": "action",
-                            "type": "uri",
-                            "uri": "tel:${data.phone}"
+                        ]
+                      },
+                      {
+                        "layout": "vertical",
+                        "type": "box",
+                        "contents": [
+                          {
+                            "size": "sm",
+                            "text": "${data.phone}",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "action": {
+                              "label": "action",
+                              "type": "uri",
+                              "uri": "tel:${data.phone}"
+                            }
+                          },
+                          {
+                            "size": "sm",
+                            "text": "${data.email}",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "wrap": true,
+                            "action": {
+                              "label": "action",
+                              "type": "uri",
+                              "uri": "mailto:${data.email}"
+                            }
+                          },
+                          {
+                            "size": "sm",
+                            "text": "${data.website}",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "wrap": true,
+                            "action": {
+                              "label": "action",
+                              "type": "uri",
+                              "uri": "${data.website}"
+                            }
+                          },
+                          {
+                            "size": "xs",
+                            "text": "${data.address}",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "lineSpacing": "12px",
+                            "action": {
+                              "label": "action",
+                              "type": "uri",
+                              "uri": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJAaZEqCYWaTQRMv6fuIsJEuo&query=%E5%BE%AE%E7%A8%8B%E5%BC%8F%E8%B3%87%E8%A8%8A&openExternalBrowser=1"
+                            }
                           }
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "margin": "lg",
-                  "text": "${data.email}",
-                  "type": "text",
-                  "wrap": true,
-                  "action": {
-                    "label": "action",
-                    "type": "uri",
-                    "uri": "mailto:${data.email}"
+                        ]
+                      }
+                    ]
                   }
-                },
-                {
-                  "margin": "lg",
-                  "size": "xxs",
-                  "text": "${data.address}",
-                  "type": "text",
-                  "action": {
-                    "label": "action",
-                    "type": "uri",
-                    "uri": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJAaZEqCYWaTQRMv6fuIsJEuo&query=%E5%BE%AE%E7%A8%8B%E5%BC%8F%E8%B3%87%E8%A8%8A&openExternalBrowser=1"
+                ]
+              },
+              {
+                "height": "1px",
+                "layout": "vertical",
+                "offsetStart": "0px",
+                "offsetTop": "0px",
+                "position": "absolute",
+                "type": "box",
+                "width": "1px",
+                "contents": [
+                  {
+                    "aspectMode": "fit",
+                    "aspectRatio": "1:1",
+                    "size": "full",
+                    "type": "image",
+                    "url": "https://liff-playground.netlify.app/assets/qr-code.27154876.png"
                   }
-                },
-                {
-                  "margin": "none",
-                  "size": "xxs",
-                  "text": "${data.addressEN}",
-                  "type": "text",
-                  "wrap": true,
-                  "action": {
-                    "label": "action",
-                    "type": "uri",
-                    "uri": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJAaZEqCYWaTQRMv6fuIsJEuo&query=%E5%BE%AE%E7%A8%8B%E5%BC%8F%E8%B3%87%E8%A8%8A&openExternalBrowser=1"
-                  }
-                },
-                {
-                  "size": "xxs",
-                  "text": "統一編號 ${data.taxId}",
-                  "type": "text"
-                }
-              ]
-            },
-            {
-              "height": "1px",
-              "layout": "vertical",
-              "offsetStart": "0px",
-              "offsetTop": "0px",
-              "position": "absolute",
-              "type": "box",
-              "width": "1px",
-              "contents": [
-                {
-                  "aspectMode": "fit",
-                  "aspectRatio": "1:1",
-                  "size": "full",
-                  "type": "image",
-                  "url": "https://liff-playground.netlify.app/assets/qr-code.27154876.png"
-                }
-              ]
-            }
-          ]
-        }
+                ]
+              }
+            ]
+          }
+        ]
       }
     }
-  ]
-  
+  }
+]
