@@ -158,6 +158,7 @@ export default function Create() {
                     height: 10 * 2,
                     position: "relative",
                   }}
+                  key={j}
                 >
                   <Image
                     onClick={() =>
@@ -168,7 +169,6 @@ export default function Create() {
                       })
                     }
                     src={getBackgroundImagePath(j + 1)}
-                    key={j}
                     loading="lazy"
                     layout="fill"
                   />
