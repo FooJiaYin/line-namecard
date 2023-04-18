@@ -1,5 +1,4 @@
-// react functional component form to generate namecard
-
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import MessagePreview from "../components/create/MessagePreview";
 import { useLiff } from "../hooks/useLiff";
@@ -51,7 +50,7 @@ export default function Create() {
             </div>
             <div>
               <label>姓名(英文)</label>
-              <input type="text" value={data.nameEN} onChange={(e) => setData({ ...data, nameEN: e.target.value })} />            />
+              <input type="text" value={data.nameEN} onChange={(e) => setData({ ...data, nameEN: e.target.value })} />
             </div>
           </div>
 
@@ -80,6 +79,110 @@ export default function Create() {
       <div style={{ flex: 1 }}>
         <label>預覽</label>
         <MessagePreview message={message} style={{ width: 400 }} />
+        <form>
+          <div className="row">
+            <div>
+              <label>字體顏色</label>
+              <input
+                type="color"
+                value={data.textColor}
+                onChange={(e) =>
+                  setData({ ...data, textColor: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label>公司名稱</label>
+              <input
+                type="color"
+                value={data.companyColor || data.textColor}
+                onChange={(e) =>
+                  setData({ ...data,
+                    companyColor: e.target.value  })
+                }
+              />
+            </div>
+            <div>
+              <label>名字顏色</label>
+              <input
+                type="color"
+                value={data.nameColor || data.textColor}
+                onChange={(e) =>
+                  setData({ ...data, nameColor: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label>背景顏色</label>
+              <input
+                type="color"
+                value={data.backgroundColor}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    backgroundColor: e.target.value,
+                    backgroundUrl: "",
+                  })
+                }
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div style={{ width: 0 }}>
+              <label>欄位比例（左）</label>
+              <input
+                type="number"
+                value={data.leftFlex}
+                onChange={(e) => setData({ ...data, leftFlex: e.target.value })}
+              />
+            </div>
+            <div>
+              <label>欄位比例（右）</label>
+              <input
+                type="number"
+                value={data.rightFlex}
+                onChange={(e) =>
+                  setData({ ...data, rightFlex: e.target.value })
+                }
+              />
+            </div>
+          </div>
+          <label>選擇背景：</label>
+          <div className="row wrap" style={{ marginBottom: 12 }}>
+            {Array(27)
+              .fill(0)
+              .map((_, j) => (
+                <div
+                  style={{
+                    width: 17 * 2,
+                    height: 10 * 2,
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    onClick={() =>
+                      setData({
+                        ...data,
+                        backgroundUrl: getBackgroundImagePath(j + 1),
+                        backgroundColor: "#0000000",
+                      })
+                    }
+                    src={getBackgroundImagePath(j + 1)}
+                    key={j}
+                    loading="lazy"
+                    layout="fill"
+                  />
+                </div>
+              ))}
+          </div>
+          <label>或輸入圖片網址：</label>
+          <input
+            value={data.backgroundUrl}
+            onChange={(e) =>
+              setData({ ...data, backgroundUrl: e.target.value })
+            }
+          ></input>
+        </form>
         <center>
           <button onClick={() => send()}>傳送</button>
         </center>

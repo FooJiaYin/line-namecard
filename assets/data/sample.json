@@ -12,5 +12,8 @@
     "addressEN": "No.7, Xinyi Rd., Sec. 5, Xinyi Dist., Taipei City 110, Taiwan (R.O.C.)",
     "website": "https://smarttech.com",
     "taxId": "12345678",
+    "textColor": "#2B3D7B",
+    "leftFlex": "1",
+    "rightFlex": "2",
     "backgroundUrl": "/images/background/horizontal/background-9.png"
 }

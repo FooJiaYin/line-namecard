@@ -11,5 +11,8 @@
     "address": "你的地址",
     "addressEN": "Your Address",
     "website": "https://yourwebsite.com",
-    "taxId": "12345678"
+    "taxId": "12345678",
+    "textColor": "#606060",
+    "leftFlex": 1,
+    "rightFlex": 2
 }
