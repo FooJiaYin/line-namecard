@@ -1,8 +1,9 @@
-import { useRouter } from "next/router";
 import Head from "next/head";
-import { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import Hero from "../components/landing-page/Hero";
+import Navbar from "../components/landing-page/Navbar";
 import { useLiff } from "../hooks/useLiff";
-import packageJson from "../package.json";
 
 export default function Login(props) {
   /** You can access to liff and liffError object through the props.
@@ -12,70 +13,27 @@ export default function Login(props) {
    *  Learn more about LIFF API documentation (https://developers.line.biz/en/reference/liff)
    **/
   const router = useRouter();
-  const { liff, isLoggedIn } = useLiff();
+  const { isLoggedIn } = useLiff();
 
   useEffect(() => {
     if (!isLoggedIn) return;
     router.replace('/create');
-  }, [liff, isLoggedIn]);
+  }, [isLoggedIn]);
+
+  const style = {
+    backgroundImage: "linear-gradient(to bottom, #2B3D7B, #407a9a, #59c1bd, #cff5e7, #f5f6f7)",
+    height: "100vh",
+  }
 
   return (
     <div>
-      <Head>
-        <title>LIFF Starter</title>
-      </Head>
-      <div className="home">
-        <img src="/images/logo.png" alt="logo" className="home__logo" />
-        <h1 className="home__title">
-          MINE Card<br />
-        </h1>
-        <p className="home__description">
-        Create and share your namecard in LINE within minutes
-        </p>
-        <div className="home__badges">
-          <span className="home__badges__badge badge--primary">
-            MINE card
-          </span>
-          <span className="home__badges__badge badge--secondary">nextjs</span>
-          <span className="home__badges__badge badge--primary">
-            {packageJson.version}
-          </span>
-          <a
-            href="https://github.com/foojiayin/line-namecard"
-            target="_blank"
-            rel="noreferrer"
-            className="home__badges__badge badge--secondary"
-          >
-            GitHub
-          </a>
-        </div>
-        <div className="home__buttons">
-          <a
-            onClick={() => liff.login()}
-            target="_blank"
-            rel="noreferrer"
-            className="home__buttons__button button--primary"
-          >
-            {isLoggedIn ? "Hello" : "Login" }
-          </a>
-          <a
-            href="/create"
-            target="_blank"
-            rel="noreferrer"
-            className="home__buttons__button button--tertiary"
-          >
-            Create
-          </a>
-          <a
-            href="/about"
-            target="_blank"
-            rel="noreferrer"
-            className="home__buttons__button button--secondary"
-          >
-            About us
-          </a>
-        </div>
-      </div>
+      <div style={style}>
+        <Head>
+          <title>MINE Card</title>
+        </Head>
+        <Navbar />
+        <Hero />
+    </div>
     </div>
   );
 }
