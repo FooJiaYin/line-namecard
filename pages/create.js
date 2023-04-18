@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import MessagePreview from "../components/create/MessagePreview";
 import { useLiff } from "../hooks/useLiff";
 import { sendFlexMessage } from "../utils/liff";
-import { generateMessage } from "../utils/message";
+import { generateMessage, getBackgroundImagePath } from "../utils/message";
 
 // form to generate namecard
 export default function Create() {

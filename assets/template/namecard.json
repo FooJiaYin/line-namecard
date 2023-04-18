@@ -1,14 +1,31 @@
 [
-    {
-      "type": "flex",
-      "altText": "this is a flex message",
-      "contents": {
-        "type": "bubble",
-        "size": "giga",
-        "body": {
-          "layout": "horizontal",
-          "paddingAll": "20px",
-          "type": "box",
+  {
+    "type": "flex",
+    "altText": "this is a flex message",
+    "contents": {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "0px",
+        "contents": [
+          {
+            "type": "image",
+            "url": "${data.backgroundUrl}",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "size": "full",
+            "aspectRatio": "17:10"
+          },
+          {
+            "layout": "horizontal",
+            "paddingAll": "30px",
+            "width": "100%",
+            "height": "100%",
+            "alignItems": "center",
+            "type": "box",
+            "position": "absolute",
           "contents": [
             {
               "flex": 314,
@@ -198,7 +215,8 @@
             }
           ]
         }
+        ]
       }
     }
-  ]
-  
+  }
+]

@@ -1,3 +1,7 @@
+export function getBackgroundImagePath(imageId, orientation = "horizontal") {
+  return `/images/background/${orientation}/background-${imageId}.png`;
+}
+
 export function generateMessage(templateName, data) {
     // load json string from template
     const template = require(`../assets/template/${templateName}.json`);
