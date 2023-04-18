@@ -18,6 +18,10 @@ export function generateMessage(templateName, data) {
   const message = JSON.stringify(template).replace(
     /\${data.(\w+)}/g,
     (match, key) => dataCopy[key]
+  ).replace(
+    /"flex":"(\d+)"/g,
+    (match, flexValue) => `"flex":${flexValue}`
   );
+  console.log(message);
   return JSON.parse(message);
 }

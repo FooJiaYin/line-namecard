@@ -99,7 +99,7 @@
                             "align": "center",
                             "flex": 0,
                             "size": "sm",
-                            "text": "📞&#xFE0E;",
+                            "text": "📞",
                             "type": "text",
                             "color": "${data.textColor}",
                             "weight": "bold"
@@ -117,7 +117,7 @@
                             "align": "center",
                             "flex": 0,
                             "size": "sm",
-                            "text": "🌐&#xFE0E;",
+                            "text": "🌐",
                             "type": "text",
                             "color": "${data.textColor}",
                             "weight": "bold"
@@ -126,7 +126,7 @@
                             "align": "center",
                             "flex": 0,
                             "size": "sm",
-                            "text": "🏠&#xFE0E;",
+                            "text": "🏠",
                             "type": "text",
                             "color": "${data.textColor}",
                             "weight": "bold"
