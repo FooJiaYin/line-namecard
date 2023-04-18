@@ -1,8 +1,8 @@
 // react functional component form to generate namecard
 
 import React, { useEffect, useState } from "react";
+import MessagePreview from "../components/create/MessagePreview";
 import { useLiff } from "../hooks/useLiff";
-import { flex2html } from "../utils/flex2html";
 import { sendFlexMessage } from "../utils/liff";
 import { generateMessage } from "../utils/message";
 
@@ -85,7 +85,7 @@ export default function Create() {
         <input type="text" value={data.taxId} onChange={(e) => setData({ ...data, taxId: e.target.value })} />
 
       </form>
-      <div dangerouslySetInnerHTML={{ __html: flex2html(message[0]) }} />
+      <MessagePreview message={message} style={{ width: 400 }} />
       <a
         onClick={() => send()}
         target="_blank"

@@ -7,7 +7,8 @@ export function flex2html(json) {
        json = json['contents']
        if(json['type'] === 'bubble') {
           result = bubble_object(json)
-          carousel = carousel.replace('<!-- inner -->', result)
+          carousel = result
+         //  carousel = carousel.replace('<!-- inner -->', result)
        } else if(json['type'] === 'carousel') {
           json['contents'].forEach((obj, index) => {
              let result = bubble_object(obj)
@@ -175,7 +176,11 @@ export function flex2html(json) {
     
     let exmgn = ''
     if(margin && margin.indexOf("px") >= 0) {
+      if (layout === 'vertical') {
+         style += `margin-left:${margin};`
+      } else {
        style += `margin-top:${margin};`
+      }
        exmgn = ''
     } else {
        exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
