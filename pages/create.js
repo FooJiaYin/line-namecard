@@ -165,7 +165,7 @@ export default function Create() {
                       setData({
                         ...data,
                         backgroundUrl: getBackgroundImagePath(j + 1),
-                        backgroundColor: "#0000000",
+                        backgroundColor: "#00000000",
                       })
                     }
                     src={getBackgroundImagePath(j + 1)}
