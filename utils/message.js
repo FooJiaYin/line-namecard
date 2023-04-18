@@ -1,5 +1,5 @@
 export function getBackgroundImagePath(imageId, orientation = "horizontal") {
-  return `/images/background/${orientation}/background-${imageId}.png`;
+  return `${process.env.LIFF_URL}/images/background/${orientation}/background-${imageId}.png`;
 }
 
 export function generateMessage(templateName, data) {
