@@ -1,10 +1,10 @@
 // react functional component form to generate namecard
 
 import React, { useEffect, useState } from "react";
-import { useLiff } from "../context/LiffContext";
+import { useLiff } from "../hooks/useLiff";
+import { flex2html } from "../utils/flex2html";
 import { sendFlexMessage } from "../utils/liff";
 import { generateMessage } from "../utils/message";
-import { flex2html } from "../utils/flex2html";
 
 // form to generate namecard
 export default function Create() {

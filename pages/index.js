@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
-import { login } from "../utils/liff";
-import { useLiff } from "../context/LiffContext";
+import { useLiff } from "../hooks/useLiff";
 import packageJson from "../package.json";
 
 export default function Login(props) {
@@ -12,8 +11,8 @@ export default function Login(props) {
    *
    *  Learn more about LIFF API documentation (https://developers.line.biz/en/reference/liff)
    **/
-  const { isLoggedIn, liff } = useLiff();
   const router = useRouter();
+  const { liff, isLoggedIn } = useLiff();
 
   useEffect(() => {
     if (!isLoggedIn) return;
