@@ -10,36 +10,7 @@ import { generateMessage } from "../utils/message";
 export default function Create() {
   const { isLoggedIn, liff } = useLiff();
   const [message, setMessage] = useState("");
-  const [data, setData] = useState({
-    company: "公司名稱",
-    companyEN: "Company Name",
-    // example logo
-    logo: "/images/logo.png",
-    name: "你的名字",
-    nameEN: "Your Name",
-    title: "你的職稱",
-    titleEN: "Your Title",
-    email: "youremail@gmail.com",
-    phone: "0912345678",
-    address: "你的地址",
-    addressEN: "Your Address",
-    website: "https://yourwebsite.com",
-    taxId: "12345678"
-
-    // company: "夢想一號魔術方塊學院",
-    // companyEN: "Dream One Cube Academy",
-    // logo: "https://i0.wp.com/dreamcube.tw/wp-content/uploads/2023/03/%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%B4%94LOGO%E9%80%8F%E6%98%8E%E5%BA%95-1.png",
-    // name: "李孟一",
-    // nameEN: "Meng-Yi Li",
-    // title: "執行長",
-    // titleEN: "CEO",
-    // email: "one@dreamcube.tw",
-    // phone: "0912345678",
-    // address: "台北市中正區羅斯福路一段一號",
-    // addressEN: "No.1, Sec. 1, Roosevelt Rd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)",
-    // website: "https://dreamcube.tw",
-    // taxId: "90468673"
-  });
+  const [data, setData] = useState(require("../assets/data/default.json"));
 
   useEffect(() => {
     const message = generateMessage("namecard", data);

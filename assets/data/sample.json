@@ -1,0 +1,15 @@
+{
+    "company": "智慧科技有限公司",
+    "companyEN": "Smart Tech Company",
+    "logo": "/images/background/sample-logo.png",
+    "name": "王小明",
+    "nameEN": "Albert Wang",
+    "title": "總經理",
+    "titleEN": "Manager",
+    "email": "ming@smarttech.com",
+    "phone": "0912345678",
+    "address": "台北市信義區信義路五段7號",
+    "addressEN": "No.7, Xinyi Rd., Sec. 5, Xinyi Dist., Taipei City 110, Taiwan (R.O.C.)",
+    "website": "https://smarttech.com",
+    "taxId": "12345678"
+}
