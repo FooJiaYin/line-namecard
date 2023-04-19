@@ -106,7 +106,7 @@ nav ul li a:hover {
 }
 
 .row>div {
-  flex: 1;
+  flex: auto;
 }
 
 .row.padded>div {
