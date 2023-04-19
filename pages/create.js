@@ -2,9 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import MessagePreview from "../components/common/MessagePreview";
+import Navbar from "../components/landing-page/Navbar";
+import { FaArrowLeft } from "react-icons/fa";
 import { useLiff } from "../hooks/useLiff";
 import { sendFlexMessage } from "../utils/liff";
 import { generateMessage, getBackgroundImagePath } from "../utils/message";
+import Link from "next/link";
 
 // form to generate namecard
 export default function Create() {
@@ -28,6 +31,14 @@ export default function Create() {
   return (
     <div>
       <Head><title>製作名片 - MINE Card</title></Head>
+      {/* Back button */}
+      <div  style={{position:"absolute"}}>
+        <Link href="/">
+        <button style={{ padding: "6px 8px"}}>
+          <FaArrowLeft />
+        </button>
+        </Link>
+      </div>
       <div
         className="row padded br-md"
         style={{ height: "100vh", alignItems: "center", padding: 20 }}
