@@ -1,13 +1,13 @@
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import MessagePreview from "../components/common/MessagePreview";
-import Navbar from "../components/landing-page/Navbar";
 import { FaArrowLeft } from "react-icons/fa";
+import MessagePreview from "../components/common/MessagePreview";
+import { Checkbox, Input } from "../components/create/Input";
+import { FormProvider } from "../hooks/useForm";
 import { useLiff } from "../hooks/useLiff";
 import { sendFlexMessage } from "../utils/liff";
 import { generateMessage, getBackgroundImagePath } from "../utils/message";
-import Link from "next/link";
 
 // form to generate namecard
 export default function Create() {
@@ -30,101 +30,56 @@ export default function Create() {
 
   return (
     <div>
-      <Head><title>製作名片 - MINE Card</title></Head>
-      {/* Back button */}
-      <div  style={{position:"absolute"}}>
+      <Head>
+        <title>製作名片 - MINE Card</title>
+      </Head>
+      <div style={{ position: "absolute" }}>
         <Link href="/">
-        <button style={{ padding: "6px 8px"}}>
-          <FaArrowLeft />
-        </button>
+          <button style={{ padding: "6px 8px" }}>
+            <FaArrowLeft />
+          </button>
         </Link>
       </div>
-      <div
-        className="row padded br-md"
-        style={{ height: "100vh", alignItems: "center", padding: 20 }}
-      >
-        <div style={{ flex: 2 }}>
-          <form>
+      <FormProvider value={[data, setData]}>
+        <div
+          className="row padded br-md"
+          style={{ height: "100vh", alignItems: "center", padding: 20 }}
+        >
+          <div style={{ flex: 2 }}>
             <div className="row">
-              <div>
-                <label>公司名稱</label>
-                <input type="text" value={data.company} onChange={(e) => setData({ ...data, company: e.target.value })} />
-              </div>
-              <div>
-                <label>公司名稱(英文)</label>
-                <input type="text" value={data.companyEN} onChange={(e) => setData({ ...data, companyEN: e.target.value })} />
-              </div>
-            </div>
-            <label>公司Logo</label>
-            <input type="text" value={data.logo} onChange={(e) => setData({ ...data, logo: e.target.value })} />
-            <div className="row">
-              <div>
-                <label>姓名</label>
-                <input type="text" value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} />
-              </div>
-              <div>
-                <label>姓名(英文)</label>
-                <input type="text" value={data.nameEN} onChange={(e) => setData({ ...data, nameEN: e.target.value })} />
-              </div>
-            </div>
-
-            <div className="row">
-              <div>
-                <label>職稱</label>
-                <input type="text" value={data.title} onChange={(e) => setData({ ...data, title: e.target.value })} />
-              </div>
-              <div>
-                <label>職稱(英文)</label>
-                <input type="text" value={data.titleEN} onChange={(e) => setData({ ...data, titleEN: e.target.value })} />
-              </div>
-              <div style={{width: "maxContent"}}>
-                <label>底色</label>
-                <input type="checkbox" onChange={(e) => setData({ ...data, highlightTitle: e.target.checked })} />
-              </div>
-            </div>
-            <label>Email</label>
-            <input type="text" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
-            <label>電話號碼</label>
-            <input type="text" value={data.phone} onChange={(e) => setData({ ...data, phone: e.target.value })} />
-            <label>地址</label>
-            <input type="text" value={data.address} onChange={(e) => setData({ ...data, address: e.target.value })} />
-            <label>網頁</label>
-            <input type="text" value={data.website} onChange={(e) => setData({ ...data, website: e.target.value })} />
-            <label>統一編號</label>
-            <input type="text" value={data.taxId} onChange={(e) => setData({ ...data, taxId: e.target.value })} />
-          </form>
-        </div>
-        <div style={{ flex: 1 }}>
-          <label>預覽</label>
-          <MessagePreview message={message} style={{ width: 400 }} />
-          <form>
-            <div className="row">
-              <div>
-                <label>字體顏色</label>
-                <input type="color" value={data.textColor} onChange={(e) => setData({ ...data, textColor: e.target.value })} />
-              </div>
-              <div>
-                <label>公司名稱</label>
-                <input type="color" value={data.companyColor || data.textColor} onChange={(e) => setData({ ...data, companyColor: e.target.value })} />
-              </div>
-              <div>
-                <label>名字顏色</label>
-                <input type="color" value={data.nameColor || data.textColor} onChange={(e) => setData({ ...data, nameColor: e.target.value })} />
-              </div>
-              <div>
-                <label>背景顏色</label>
-                <input type="color" value={data.backgroundColor} onChange={(e) => setData({ ...data, backgroundColor: e.target.value, backgroundUrl: "" })} />
-              </div>
+              <Input label="姓名" field="name" />
+              <Input label="姓名(英文)" field="nameEN" />
             </div>
             <div className="row">
-              <div style={{ width: 0 }}>
-                <label>欄位比例（左）</label>
-                <input type="number" value={data.leftFlex} onChange={(e) => setData({ ...data, leftFlex: e.target.value })} />
-              </div>
-              <div style={{ width: 0 }}>
-                <label>欄位比例（右）</label>
-                <input type="number" value={data.rightFlex} onChange={(e) => setData({ ...data, rightFlex: e.target.value })} />
-              </div>
+              <Input label="公司名稱" field="company" />
+              <Input label="公司名稱(英文)" field="companyEN" />
+            </div>
+            <Input label="公司Logo" field="logo" />
+            <div className="row">
+              <Input label="職稱" field="title" />
+              <Input label="職稱(英文)" field="titleEN" />
+              <Checkbox label="底色" field="highlightTitle" />
+            </div>
+            <div className="row">
+              <Input label="Email" field="email" />
+              <Input label="電話號碼" field="phone" />
+            </div>
+            <Input label="地址" field="address" />
+            <Input label="網頁" field="website" />
+            <Input label="統一編號" field="taxId" />
+          </div>
+          <div style={{ flex: 1 }}>
+            <label>預覽</label>
+            <MessagePreview message={message} style={{ width: 400 }} />
+            <div className="row">
+              <Input label="字體顏色" field="textColor" type="color" />
+              <Input label="公司名稱" field="companyColor" type="color" />
+              <Input label="名字顏色" field="nameColor" type="color" />
+              <Input label="背景顏色" field="backgroundColor" type="color" />
+            </div>
+            <div className="row">
+              <Input label="欄位比例（左）"  field="leftFlex" type="number" style={{ width: 0 }} />
+              <Input label="欄位比例（右）" field="rightFlex" type="number"  style={{ width: 0 }} />
             </div>
             <label>選擇背景：</label>
             <div className="row wrap" style={{ marginBottom: 12 }}>
@@ -142,12 +97,12 @@ export default function Create() {
             </div>
             <label>或輸入圖片網址：</label>
             <input value={data.backgroundUrl} onChange={(e) => setData({ ...data, backgroundUrl: e.target.value })} />
-          </form>
           <center>
             <button onClick={() => send()}>傳送</button>
           </center>
         </div>
       </div>
+      </FormProvider>
     </div>
   );
 }
