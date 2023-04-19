@@ -18,19 +18,19 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.title}>MINE Card</h1>
-        <p className={styles.heroDescription}>
+        <p className={styles.description}>
           製作你的個人名片，並分享到 LINE
         </p>
         {!isLoggedIn ? (
-          <button className={styles.ctaButton} onClick={() => liff.login()}>
+          <button className={styles.button} onClick={() => liff.login()}>
             LINE 登入
           </button>
         ) : null}
         <Link href="/create">
-          <button className={styles.ctaButton}>開始製作</button>
+          <button className={styles.button}>開始製作</button>
         </Link>
       </div>
-      <MessagePreview message={message} style={{ width: 425 }} />
+      <MessagePreview className={styles.messagePreview} message={message} style={{ width: 425 }} />
     </section>
   );
 }

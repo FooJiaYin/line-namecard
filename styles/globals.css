@@ -41,14 +41,28 @@ nav ul li {
 
 nav a {
   text-decoration: none;
-  color: #fff;
+  color: #cff5e7;
   font-weight: bold;
 }
 
 nav ul li a:hover {
-  cursor: pointer;
   color: #59C1BD;
-  text-decoration: underline;
+}
+
+/* Underline animation when hover on nav links */
+nav ul li a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #59C1BD;
+  /* margin horizontal auto, top 5px, bottom 0 */
+  margin: 5px auto 0;
+  transition: width 0.4s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 .toggle {
@@ -67,25 +81,27 @@ nav ul li a:hover {
     display: block;
   }
 
+  /* Animate nav ul height */
+
   nav ul {
-    display: none;
+    /* display: none; */
+    display: flex;
+    flex-direction: column;
     top: 100%;
     left: 0;
     width: 100%;
+    overflow-y: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+    padding: 0;
   }
 
   nav li {
-    margin: 0.5rem 1rem;
-    text-align: center;
-  }
-
-  nav a {
-    color: #59C1BD;
+    margin: 0.5rem auto;
   }
 
   nav.open ul {
-    display: flex;
-    flex-direction: column;
+    height: 14rem;
   }
 }
 
@@ -124,6 +140,7 @@ nav ul li a:hover {
   }
 }
 
+/* Button hover animation gradient background */
 button {
   background-color: #2B3D7B;
   color: #f5f6f7;
@@ -133,6 +150,15 @@ button {
   border: none;
   border-radius: 50rem;
   margin: 1rem;
+  background-position: 0;
+  background-image: linear-gradient(to right, #2B3D7B, #2B3D7B, #59c1bd);
+  transition: all 0.5s ease;
+  background-size: 200% 100%;
+}
+
+button:hover {
+  background-position: 100% 0;
+  color: #f5f6f7;
 }
 
 /* css input style bootstrap */
@@ -160,8 +186,6 @@ input[type="color"] {
   border: none;
 }
 
-
-/* css input label style bootstrap */
 label {
   display: inline-block;
   margin: 0.5rem 0;

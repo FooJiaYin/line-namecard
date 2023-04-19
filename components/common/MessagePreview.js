@@ -1,10 +1,10 @@
 import React from 'react'
 import { flex2html } from '../../utils/flex2html'
 
-export default function MessagePreview({message, style}) {
+export default function MessagePreview({message, style, ...props}) {
   const divStyle = {
     backgroundColor: "white", 
-    boxShadow: "5px 5px 10px #0001",
+    boxShadow: "5px 5px 10px #0002",
     borderRadius: "20px",
     overflow: "hidden",
     color: "#000",
@@ -15,6 +15,6 @@ export default function MessagePreview({message, style}) {
     ...style,
   }
   return (
-    <div style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message[0]) }} />
+    <div style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message[0]) }} {...props} />
   )
 }

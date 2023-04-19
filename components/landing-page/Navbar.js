@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <header>
       <nav className={`${isOpen ? "open" : ""}`}>
-        <button className="toggle" onClick={handleToggle} >{isOpen ? <FaTimes color="#59C1BD" /> : <FaBars />}</button>
+        <button className="toggle" onClick={handleToggle} >{isOpen ? <FaTimes /> : <FaBars />}</button>
         <ul>
           <li><Link href="/">首頁</Link></li>
           <li><Link href="/create">製作名片</Link></li>
