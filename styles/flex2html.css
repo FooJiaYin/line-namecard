@@ -882,7 +882,7 @@ strong {
     font-size: 22px;
 }
 
-.MdSpn.ExXXl {
+.MdSpn.ExXxl {
     font-size: 29px;
 }
 
@@ -950,8 +950,8 @@ strong {
     font-size: 22px;
 }
 
-.MdIco.ExXXl,
-.MdTxt.ExXXl {
+.MdIco.ExXxl,
+.MdTxt.ExXxl {
     font-size: 29px;
 }
 
@@ -1065,7 +1065,7 @@ strong {
     width: 140px;
 }
 
-.MdImg.ExXXl>div {
+.MdImg.ExXxl>div {
     width: 160px;
 }
 

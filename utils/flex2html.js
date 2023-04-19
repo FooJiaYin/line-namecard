@@ -89,16 +89,17 @@ export function flex2html(json) {
     
     return bubble
  }
- function box_recursive(parent_box, json) {
+ function box_recursive(parent_box, json, layout='vertical') {
     let result = []
     json.forEach((obj, index) => {
        let temp
+       obj.parent_layout = layout
        if(obj['type'] === 'box') {
           let temp2 = box_object(obj)
-          temp = box_recursive(temp2, obj['contents'])
+          temp = box_recursive(temp2, obj['contents'], obj['layout'])
        } else if(obj['type'] === 'text' && obj['contents'] && obj['contents'].length > 0 ) {
           let temp2 = convert_object(obj)
-          temp = box_recursive(temp2, obj['contents'])
+          temp = box_recursive(temp2, obj['contents'], 'horizontal')
        } else {
           temp = convert_object(obj)
        }
@@ -144,11 +145,30 @@ export function flex2html(json) {
     }
     return object
  }
+
+ function get_margin(parent_layout, margin, style) {
+   let exmgn = ''
+    if(margin && margin.indexOf("px") >= 0) {
+      if (parent_layout === 'horizontal') {
+         style += `margin-left:${margin};`
+      } else {
+         style += `margin-top:${margin};`
+      }
+       exmgn = ''
+    } else {
+      if (parent_layout === 'horizontal') {
+         exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+      } else {
+         exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      }
+    }
+   return {style, exmgn};
+ }
  
  function box_object(json) {
     let style = ''
     let layout1, layout2
-    let {layout, position, flex, spacing, margin, width, height, backgroundColor, borderColor, borderWidth, cornerRadius, justifyContent, alignItems, offsetTop, offsetBottom, offsetStart, offsetEnd, paddingAll, paddingTop, paddingBottom, paddingStart, paddingEnd, background, maxWidth, maxHeight} = json
+    let { layout, position, flex, spacing, margin, width, height, backgroundColor, borderColor, borderWidth, cornerRadius, justifyContent, alignItems, offsetTop, offsetBottom, offsetStart, offsetEnd, paddingAll, paddingTop, paddingBottom, paddingStart, paddingEnd, background, maxWidth, maxHeight} = json
     if(layout === 'baseline') {
        layout1 = 'hr'
        layout2 = 'bl'
@@ -174,17 +194,23 @@ export function flex2html(json) {
        spc = (spacing) ? 'spc' + upperalldigit(spacing) : ''
     }
     
+   //  let { _style, exmgn } = get_margin(json.parent_layout, margin, style)
     let exmgn = ''
     if(margin && margin.indexOf("px") >= 0) {
-      if (layout === 'vertical') {
+      if (json.parent_layout === 'horizontal') {
          style += `margin-left:${margin};`
       } else {
-       style += `margin-top:${margin};`
+         style += `margin-top:${margin};`
       }
        exmgn = ''
     } else {
-       exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      if (json.parent_layout === 'horizontal') {
+         exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+      } else {
+         exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      }
     }
+
     if(width && width !== '') {
        style += `width:${width}; max-width:${width};`
     }
@@ -371,11 +397,21 @@ export function flex2html(json) {
     }
     exabs = (position === 'absolute') ? 'ExAbs' : ''
     
+   //  let { exmgn } = get_margin(json.parent_layout, margin, style2)
+   let exmgn = ''
     if(margin && margin.indexOf("px") >= 0) {
-       style2 += `margin-top:${margin};`
+      if (json.parent_layout === 'horizontal') {
+         style2 += `margin-left:${margin};`
+      } else {
+         style2 += `margin-top:${margin};`
+      }
        exmgn = ''
     } else {
-       exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      if (json.parent_layout === 'horizontal') {
+         exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+      } else {
+         exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      }
     }
  
     height = (!height || height === '' || height === 'md') ? '' : 'Ex' + upperalldigit(height)
@@ -474,11 +510,21 @@ export function flex2html(json) {
     }
     exabs = (position === 'absolute') ? 'ExAbs' : ''
     
+   //  let { exmgn } = get_margin(json.parent_layout, margin, style2)
+   let exmgn = ''
     if(margin && margin.indexOf("px") >= 0) {
-       style2 += `margin-top:${margin};`
+      if (json.parent_layout === 'horizontal') {
+         style2 += `margin-left:${margin};`
+      } else {
+         style2 += `margin-top:${margin};`
+      }
        exmgn = ''
     } else {
-       exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      if (json.parent_layout === 'horizontal') {
+         exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+      } else {
+         exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+      }
     }
     
     if(offsetTop && offsetTop.indexOf("px") >= 0) {
@@ -544,12 +590,22 @@ export function flex2html(json) {
     }
     let exabs = (position === 'absolute') ? 'ExAbs' : ''
     
-    let exmgn = ''
-    if(margin && margin.indexOf("px") >= 0) {
-       style += `margin-top:${margin};`
-    } else {
-       exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
-    }
+   //  let { exmgn } = get_margin(json.parent_layout, margin, style)
+   let exmgn = ''
+   if(margin && margin.indexOf("px") >= 0) {
+     if (json.parent_layout === 'horizontal') {
+        style += `margin-left:${margin};`
+     } else {
+        style += `margin-top:${margin};`
+     }
+      exmgn = ''
+   } else {
+     if (json.parent_layout === 'horizontal') {
+        exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+     } else {
+        exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+     }
+   }
     
     let alg = (align === 'start' || align === 'end') ? 'alg' + upper1digit(align) : '';
     let grv = (gravity === 'bottom' || gravity === 'center') ? 'grv' + upper1digit(gravity) : '';
@@ -622,12 +678,23 @@ export function flex2html(json) {
     let style = ''
     let {margin, color} = json
  
-    if(margin && margin.indexOf("px") >= 0) {
-       style += `margin-top:${margin};`
-       exmgn = ''
-    } else {
-       exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
-    }
+   //  let { exmgn } = get_margin(json.parent_layout, margin, style)
+   let exmgn = ''
+   if(margin && margin.indexOf("px") >= 0) {
+     if (json.parent_layout === 'horizontal') {
+        style += `margin-left:${margin};`
+     } else {
+        style += `margin-top:${margin};`
+     }
+      exmgn = ''
+   } else {
+     if (json.parent_layout === 'horizontal') {
+        exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+     } else {
+        exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+     }
+   }
+    
     if(color) {
        style += `border-color:${color} !important;`
     }
@@ -731,12 +798,23 @@ export function flex2html(json) {
     }
     let exabs = (position === 'absolute') ? 'ExAbs' : ''
     
+   //  let { exmgn } = get_margin(json.parent_layout, margin, style)
     let exmgn = ''
-    if(margin && margin.indexOf("px") >= 0) {
-       style2 += `margin-top:${margin};`
-    } else {
-       exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
-    }
+     if(margin && margin.indexOf("px") >= 0) {
+      console.log('margin', margin, json.parent_layout);
+       if (json.parent_layout === 'horizontal') {
+          style2 += `margin-left:${margin};`
+       } else {
+          style2 += `margin-top:${margin};`
+       }
+        exmgn = ''
+     } else {
+       if (json.parent_layout === 'horizontal') {
+          exmgn = (margin) ? 'ExMgnL' + upperalldigit(margin) : ''
+       } else {
+          exmgn = (margin) ? 'ExMgnT' + upperalldigit(margin) : ''
+       }
+     }
     
     let alg = (align === 'start' || align === 'end' || align === 'center') ? 'ExAlg' + upper1digit(align) : '';
     let grv = (gravity === 'bottom' || gravity === 'center') ? 'grv' + upper1digit(gravity) : '';
