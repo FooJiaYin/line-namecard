@@ -17,23 +17,18 @@ export default function Login(props) {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    router.replace('/create');
+    router.replace("/create");
   }, [isLoggedIn]);
 
-  const style = {
-    backgroundImage: "linear-gradient(to bottom, #2B3D7B, #407a9a, #59c1bd, #cff5e7, #f5f6f7)",
-    height: "100vh",
-  }
-
   return (
-    <div>
-      <div style={style}>
-        <Head>
-          <title>MINE Card</title>
-        </Head>
-        <Navbar />
+    <div style={{ minHeight: "100vh" }}>
+      <Head>
+        <title>MINE Card</title>
+      </Head>
+      <Navbar />
+      <div className={"bg-gradient"}>
         <Hero />
-    </div>
+      </div>
     </div>
   );
 }

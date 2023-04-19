@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   margin: 0;
   padding: 0;
@@ -10,13 +11,13 @@ html, body {
 }
 
 header {
-  /* background-color: #2B3D7B; */
   color: #fff !important;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
+  background-color: #2B3D7B;
 }
 
 nav {
@@ -30,6 +31,8 @@ nav {
 nav ul {
   display: flex;
   gap: 1rem;
+  padding: 1rem;
+  margin: 0;
 }
 
 nav ul li {
@@ -38,17 +41,34 @@ nav ul li {
 
 nav a {
   text-decoration: none;
-  color: #fff;
+  color: #cff5e7;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
-  cursor: pointer;
   color: #59C1BD;
-  text-decoration: underline;
+}
+
+/* Underline animation when hover on nav links */
+nav ul li a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #59C1BD;
+  /* margin horizontal auto, top 5px, bottom 0 */
+  margin: 5px auto 0;
+  transition: width 0.4s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 .toggle {
   display: none;
+  padding: 0;
+  margin: 1rem 1rem 1rem auto;
 }
 
 /* Media queries */
@@ -57,26 +77,35 @@ nav ul li a:hover {
     display: block;
   }
 
-  ul {
-    display: none;
-    position: absolute;
+  nav {
+    display: block;
+  }
+
+  /* Animate nav ul height */
+
+  nav ul {
+    /* display: none; */
+    display: flex;
+    flex-direction: column;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 1rem;
+    overflow-y: hidden;
+    height: 0;
+    transition: height 0.5s ease;
+    padding: 0;
   }
 
-  li {
-    margin: 0.5rem 0;
+  nav li {
+    margin: 0.5rem auto;
   }
 
   nav.open ul {
-    display: flex;
-    flex-direction: column;
+    height: 14rem;
   }
 }
 
-.gradient-background {
+.bg-gradient {
   background-image: linear-gradient(to bottom, #2B3D7B, #407a9a, #59c1bd, #cff5e7, #f5f6f7);
 }
 
@@ -93,7 +122,7 @@ nav ul li a:hover {
 }
 
 .row>div {
-  flex: 1;
+  flex: auto;
 }
 
 .row.padded>div {
@@ -105,6 +134,13 @@ nav ul li a:hover {
   flex: none;
 }
 
+@media (max-width: 1000px) {
+  .row.br-md {
+    display: block;
+  }
+}
+
+/* Button hover animation gradient background */
 button {
   background-color: #2B3D7B;
   color: #f5f6f7;
@@ -114,6 +150,15 @@ button {
   border: none;
   border-radius: 50rem;
   margin: 1rem;
+  background-position: 0;
+  background-image: linear-gradient(to right, #2B3D7B, #2B3D7B, #59c1bd);
+  transition: all 0.5s ease;
+  background-size: 200% 100%;
+}
+
+button:hover {
+  background-position: 100% 0;
+  color: #f5f6f7;
 }
 
 /* css input style bootstrap */
@@ -141,11 +186,10 @@ input[type="color"] {
   border: none;
 }
 
-
-/* css input label style bootstrap */
 label {
   display: inline-block;
-  margin: 0.5rem 0;display: inline-block;
+  margin: 0.5rem 0;
+  display: inline-block;
   margin: 12px 0;
   color: #407a9a;
   font-weight: 600;

@@ -99,7 +99,7 @@
                             "align": "center",
                             "flex": 0,
                             "size": "sm",
-                            "text": "📞",
+                            "text": "✉",
                             "type": "text",
                             "color": "${data.textColor}",
                             "weight": "bold"
@@ -108,7 +108,7 @@
                             "align": "center",
                             "flex": 0,
                             "size": "sm",
-                            "text": "✉",
+                            "text": "📞",
                             "type": "text",
                             "color": "${data.textColor}",
                             "weight": "bold"
@@ -139,21 +139,10 @@
                         "contents": [
                           {
                             "size": "sm",
-                            "text": "${data.phone}",
-                            "type": "text",
-                            "color": "${data.textColor}",
-                            "action": {
-                              "label": "action",
-                              "type": "uri",
-                              "uri": "tel:${data.phone}"
-                            }
-                          },
-                          {
-                            "size": "sm",
                             "text": "${data.email}",
                             "type": "text",
                             "color": "${data.textColor}",
-                            "wrap": true,
+                            "maxLines": 1,
                             "action": {
                               "label": "action",
                               "type": "uri",
@@ -162,10 +151,22 @@
                           },
                           {
                             "size": "sm",
+                            "text": "${data.phone}",
+                            "type": "text",
+                            "color": "${data.textColor}",
+                            "maxLines": 1,
+                            "action": {
+                              "label": "action",
+                              "type": "uri",
+                              "uri": "tel:${data.phone}"
+                            }
+                          },
+                          {
+                            "size": "sm",
                             "text": "${data.website}",
                             "type": "text",
                             "color": "${data.textColor}",
-                            "wrap": true,
+                            "maxLines": 1,
                             "action": {
                               "label": "action",
                               "type": "uri",
