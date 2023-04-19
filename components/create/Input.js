@@ -1,18 +1,10 @@
 import { useForm } from "../../hooks/useForm";
 
-export const Input = ({
-  label,
-  field,
-  type = "text",
-  onChange,
-  style,
-  ...props
-}) => {
+export const Input = ({ label, field, type = "text", onChange, style, ...props }) => {
   const [formData, setFormData] = useForm();
 
   const handleChange = (event) => {
     setFormData({ ...formData, [field]: event.target.value });
-    console.log(formData);
   };
 
   return (
