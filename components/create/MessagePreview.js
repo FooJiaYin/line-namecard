@@ -9,7 +9,10 @@ export default function MessagePreview({message, style}) {
     borderRadius: "20px",
     overflow: "hidden",
     color: "#000",
-    height: "fit-content",
+    // height: "fit-content",
+    aspectRatio: 1.7,
+    width: "100%",
+    maxWidth: "100%",
     ...style,
   }
   return (

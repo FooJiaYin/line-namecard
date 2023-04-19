@@ -26,11 +26,11 @@ export default function Create() {
 
   return (
     <div
-      className="row padded"
-      style={{ height: "100vh", alignItems: "center" }}
+      className="row padded br-md"
+      style={{ height: "100vh", alignItems: "center", padding: 20 }}
     >
       <div style={{ flex: 2 }}>
-        <form style={{ padding: 20 }}>
+        <form>
           <div className="row">
             <div>
               <label>公司名稱</label>

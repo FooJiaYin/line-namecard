@@ -30,7 +30,7 @@ export default function Hero() {
           <button className={styles.ctaButton}>開始製作</button>
         </Link>
       </div>
-      <MessagePreview message={message} style={{ width: 425, height: 250 }} />
+      <MessagePreview message={message} style={{ width: 425 }} />
     </section>
   );
 }
