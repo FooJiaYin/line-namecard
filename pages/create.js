@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import MessagePreview from "../components/create/MessagePreview";
@@ -25,6 +26,8 @@ export default function Create() {
   };
 
   return (
+    <div>
+      <Head><title>製作名片 - MINE Card</title></Head>
     <div
       className="row padded br-md"
       style={{ height: "100vh", alignItems: "center", padding: 20 }}
@@ -190,6 +193,7 @@ export default function Create() {
         <center>
           <button onClick={() => send()}>傳送</button>
         </center>
+        </div>
       </div>
     </div>
   );
