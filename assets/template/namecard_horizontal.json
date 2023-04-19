@@ -32,18 +32,18 @@
                 "flex": "${data.leftFlex}",
                 "layout": "vertical",
                 "type": "box",
+                "action": {
+                  "label": "action",
+                  "type": "uri",
+                  "uri": "${data.website}"
+                },
                 "contents": [
                   {
                     "aspectMode": "fit",
                     "size": "md",
                     "align": "center",
                     "type": "image",
-                    "url": "${data.logo}",
-                    "action": {
-                      "label": "action",
-                      "type": "uri",
-                      "uri": "${data.website}"
-                    }
+                    "url": "${data.logo}"
                   },
                   {
                     "type": "text",
@@ -182,30 +182,12 @@
                             "action": {
                               "label": "action",
                               "type": "uri",
-                              "uri": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJAaZEqCYWaTQRMv6fuIsJEuo&query=%E5%BE%AE%E7%A8%8B%E5%BC%8F%E8%B3%87%E8%A8%8A&openExternalBrowser=1"
+                              "uri": "https://www.google.com/maps/search/${data.address}"
                             }
                           }
                         ]
                       }
                     ]
-                  }
-                ]
-              },
-              {
-                "height": "1px",
-                "layout": "vertical",
-                "offsetStart": "0px",
-                "offsetTop": "0px",
-                "position": "absolute",
-                "type": "box",
-                "width": "1px",
-                "contents": [
-                  {
-                    "aspectMode": "fit",
-                    "aspectRatio": "1:1",
-                    "size": "full",
-                    "type": "image",
-                    "url": "https://liff-playground.netlify.app/assets/qr-code.27154876.png"
                   }
                 ]
               }
