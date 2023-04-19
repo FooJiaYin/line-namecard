@@ -1,7 +1,3 @@
-export function getBackgroundImagePath(imageId, orientation = "horizontal") {
-  return `${process.env.LIFF_URL}/images/background/${orientation}/background-${imageId}.png`;
-}
-
 export function generateMessage(templateName, data) {
   // load json string from template
   const template = require(`../assets/template/${templateName}.json`);

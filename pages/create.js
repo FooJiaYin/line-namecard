@@ -3,11 +3,12 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import MessagePreview from "../components/common/MessagePreview";
+import BackgroundSelector from "../components/create/BackgroundSelector";
 import { Checkbox, Input } from "../components/create/Input";
 import { FormProvider } from "../hooks/useForm";
 import { useLiff } from "../hooks/useLiff";
 import { sendFlexMessage } from "../utils/liff";
-import { generateMessage, getBackgroundImagePath } from "../utils/message";
+import { generateMessage } from "../utils/message";
 
 // form to generate namecard
 export default function Create() {
@@ -82,26 +83,13 @@ export default function Create() {
               <Input label="欄位比例（右）" field="rightFlex" type="number"  style={{ width: 0 }} />
             </div>
             <label>選擇背景：</label>
-            <div className="row wrap" style={{ marginBottom: 12 }}>
-              {Array(27).fill(0).map((_, j) => (
-                <div style={{ width: 17 * 2, height: 10 * 2, position: "relative" }} key={j}>
-                    <Image src={getBackgroundImagePath(j + 1)} loading="lazy" layout="fill"
-                      onClick={() => setData({
-                        ...data,
-                        backgroundUrl: getBackgroundImagePath(j + 1),
-                        backgroundColor: "#00000000",
-                      })}
-                    />
-                  </div>
-                ))}
-            </div>
-            <label>或輸入圖片網址：</label>
-            <input value={data.backgroundUrl} onChange={(e) => setData({ ...data, backgroundUrl: e.target.value })} />
-          <center>
-            <button onClick={() => send()}>傳送</button>
-          </center>
+            <BackgroundSelector style={{ marginBottom: 12 }} />
+            <Input label="或輸入圖片網址：" field="backgroundUrl" />
+            <center>
+              <button onClick={() => send()}>傳送</button>
+            </center>
+          </div>
         </div>
-      </div>
       </FormProvider>
     </div>
   );
