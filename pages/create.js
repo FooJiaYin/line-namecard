@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import MessagePreview from "../components/create/MessagePreview";
+import MessagePreview from "../components/common/MessagePreview";
 import { useLiff } from "../hooks/useLiff";
 import { sendFlexMessage } from "../utils/liff";
 import { generateMessage, getBackgroundImagePath } from "../utils/message";

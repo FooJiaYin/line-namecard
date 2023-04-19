@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useLiff } from "../../hooks/useLiff";
 import { generateMessage } from "../../utils/message";
-import MessagePreview from "../create/MessagePreview";
+import MessagePreview from "../common/MessagePreview";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
