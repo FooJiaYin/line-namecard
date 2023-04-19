@@ -63,6 +63,10 @@ export default function Create() {
               <label>職稱(英文)</label>
               <input type="text" value={data.titleEN} onChange={(e) => setData({ ...data, titleEN: e.target.value })} />
             </div>
+            <div style={{flex: 0}}>
+              <label>底色</label>
+              <input type="checkbox" onChange={(e) => setData({ ...data, highlightTitle: e.target.checked })} />
+            </div>
           </div>
           <label>Email</label>
           <input type="text" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
