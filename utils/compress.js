@@ -97,7 +97,7 @@ function decompressFromArray(template, data) {
   // Decompress data.buttons
   if (decompressedData.buttons) {
     decompressedData.buttons = decompressedData.buttons.map((button) =>
-      decompress("button", button)
+      decompressFromArray("button", button)
     );
   }
 
