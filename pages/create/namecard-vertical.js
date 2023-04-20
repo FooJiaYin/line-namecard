@@ -31,7 +31,7 @@ export default function CreateVertical() {
       </div>
       <div style={{ flex: 1 }}>
         <label>預覽</label>
-        <MessagePreview template="namecard_vertical" style={{ width: 300 }} />
+        <MessagePreview template="namecard-vertical" style={{ width: 300 }} />
       </div>
       <div style={{ flex: 1 }}>
         <div className="row">

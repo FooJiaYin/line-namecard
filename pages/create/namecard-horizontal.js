@@ -31,7 +31,7 @@ export default function CreateHorizontal() {
       </div>
       <div style={{ flex: 1 }}>
         <label>預覽</label>
-        <MessagePreview template="namecard_horizontal" style={{ width: 400 }} />
+        <MessagePreview template="namecard-horizontal" style={{ width: 400 }} />
         <div className="row">
           <Input label="字體顏色" field="textColor" type="color" />
           <Input label="公司名稱" field="companyColor" type="color" />
