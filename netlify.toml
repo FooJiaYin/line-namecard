@@ -1,7 +1,10 @@
 [build]
-  command = "yarn install && yarn build && yarn start"
+  command = "yarn install && yarn build"
   publish = ".next"
 
 [template.environment]
   LIFF_ID = "Your LIFF ID which is aquired from LINE Dev Center"
   LIFF_URL = "Domain url of the app"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
