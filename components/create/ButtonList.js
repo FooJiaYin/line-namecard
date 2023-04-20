@@ -23,12 +23,14 @@ export default function ButtonList() {
             <div style={{display: "flex", flexDirection: "column", margin: "auto 0"}}  className="narrow">
               <MdOutlineAddCircleOutline size={20} style={{margin: "8 0"}} color="#407a9a" 
                 onClick={() => {
+                  // Add a new button after the current button
                   formData.buttons.splice(index + 1, 0, buttons[1]);
                   setFormData({...formData, buttons: formData.buttons});
                 }}
               />
               <MdOutlineRemoveCircleOutline size={20} color="#D24B4B" 
                 onClick={() => {
+                  // Remove the current button
                   formData.buttons.splice(index, 1);
                   setFormData({...formData, buttons: formData.buttons});
                 }}
