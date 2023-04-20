@@ -5,7 +5,7 @@
  * @returns string
  * @example
  * ```js
- * const data = require("../assets/data/example.json");
+ * const data = require("../assets/data/sample.json");
  * const message = generateMessage("namecard_horizontal", data);
  * // Send message with LINE
  * sendFlexMessage(message);
