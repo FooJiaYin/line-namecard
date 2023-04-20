@@ -43,7 +43,7 @@ export function generateMessage(templateName, data) {
   }
 
   // Generate flex string from button data
-  if (data.buttons && data.buttons.length > 0) {
+  if (data.buttons) {
     dataCopy.buttons = [];
     data.buttons.forEach((button, _) => {
       dataCopy.buttons.push(generateMessage("button", button));
@@ -55,7 +55,7 @@ export function generateMessage(templateName, data) {
   // Replace all placeholder `${data.key}` with value from `data[key]`
   // For example, if `data` is { name: "John" }, then ${data.name} will be replaced with "John"
   message = message
-    .replace('"${data.buttons}"', dataCopy.buttons)
+    .replace(',"${data.buttons}"', dataCopy.buttons && `,${dataCopy.buttons}`)
     .replace('"${data.flex}"', dataCopy.flexValue)
     .replace(/\${data.(\w+)}/g, (match, key) => dataCopy[key])
   
