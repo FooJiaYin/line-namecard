@@ -22,11 +22,11 @@ export default function CreateForm({ children }) {
   };
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <Head>
         <title>製作名片 - MINE Card</title>
       </Head>
-      <div style={{ position: "absolute" }}>
+      <div style={{ position: "absolute", top: 0 }}>
         <Link href="/">
           <button style={{ padding: "6px 8px" }}>
             <FaArrowLeft />
@@ -36,7 +36,7 @@ export default function CreateForm({ children }) {
       <FormProvider value={[data, setData]}>
         <div
           className="row padded br-md"
-          style={{ alignItems: "center", padding: 20 }}
+          style={{ alignItems: "center", padding: 20, height: "100%" }}
         >
           {children}
         </div>

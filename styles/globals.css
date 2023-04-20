@@ -133,6 +133,11 @@ nav ul li a:hover::after {
 .row.wrap>div {
   flex: none;
 }
+.narrow, .row>div.narrow {
+  min-width: max-content;
+  flex: 0;
+}
+
 
 @media (max-width: 1000px) {
   .row.br-md {
