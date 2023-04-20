@@ -226,8 +226,8 @@ export function flex2html(json) {
     }
  
     let ExBdr = ''
-    if(borderWidth && borderWidth.indexOf("px") >= 0) {
-       style += `border-width:${borderWidth};`
+    if(borderColor && borderWidth && borderWidth.indexOf("px") >= 0) {
+       style += `border-width:${borderWidth}; border-style:solid;`
     } else {
        switch(borderWidth) {
           case 'none':
@@ -802,7 +802,6 @@ export function flex2html(json) {
    //  let { exmgn } = get_margin(json.parent_layout, margin, style)
     let exmgn = ''
      if(margin && margin.indexOf("px") >= 0) {
-      console.log('margin', margin, json.parent_layout);
        if (json.parent_layout === 'horizontal') {
           style2 += `margin-left:${margin};`
        } else {

@@ -459,7 +459,7 @@ strong {
     margin-left: 16px;
 }
 
-.T1 .MdBx.hr.spcXXl>div {
+.T1 .MdBx.hr.spcXxl>div {
     margin-left: 20px;
 }
 
@@ -493,7 +493,7 @@ strong {
     margin-right: 16px;
 }
 
-.T1.fxRTL .MdBx.hr.spcXXl>div {
+.T1.fxRTL .MdBx.hr.spcXxl>div {
     margin-right: 20px;
 }
 
@@ -576,7 +576,7 @@ strong {
     margin-top: 16px;
 }
 
-.MdBx.vr.spcXXl>div {
+.MdBx.vr.spcXxl>div {
     margin-top: 20px;
 }
 
@@ -678,7 +678,7 @@ strong {
     width: 16px;
 }
 
-.MdBx.hr>div.mdBxSpacer.spcXXl {
+.MdBx.hr>div.mdBxSpacer.spcXxl {
     width: 20px;
 }
 
@@ -714,7 +714,7 @@ strong {
     height: 16px;
 }
 
-.MdBx.vr>div.mdBxSpacer.spcXXl {
+.MdBx.vr>div.mdBxSpacer.spcXxl {
     height: 20px;
 }
 
@@ -1178,7 +1178,7 @@ strong {
     margin: 16px !important;
 }
 
-.ExMgnAXXl {
+.ExMgnAXxl {
     margin: 20px !important;
 }
 
@@ -1206,7 +1206,7 @@ strong {
     margin-top: 16px !important;
 }
 
-.ExMgnTXXl {
+.ExMgnTXxl {
     margin-top: 20px !important;
 }
 
@@ -1234,7 +1234,7 @@ strong {
     margin-bottom: 16px !important;
 }
 
-.ExMgnBXXl {
+.ExMgnBXxl {
     margin-bottom: 20px !important;
 }
 
@@ -1262,7 +1262,7 @@ strong {
     margin-left: 16px !important;
 }
 
-.ExMgnLXXl {
+.ExMgnLXxl {
     margin-left: 20px !important;
 }
 
@@ -1290,7 +1290,7 @@ strong {
     margin-right: 16px !important;
 }
 
-.ExMgnRXXl {
+.ExMgnRXxl {
     margin-right: 20px !important;
 }
 
@@ -1318,7 +1318,7 @@ strong {
     padding: 16px !important;
 }
 
-.ExPadAXXl {
+.ExPadAXxl {
     padding: 20px !important;
 }
 
@@ -1346,7 +1346,7 @@ strong {
     padding-top: 16px !important;
 }
 
-.ExPadTXXl {
+.ExPadTXxl {
     padding-top: 20px !important;
 }
 
@@ -1374,7 +1374,7 @@ strong {
     padding-bottom: 16px !important;
 }
 
-.ExPadBXXl {
+.ExPadBXxl {
     padding-bottom: 20px !important;
 }
 
@@ -1402,7 +1402,7 @@ strong {
     padding-left: 16px !important;
 }
 
-.ExPadLXXl {
+.ExPadLXxl {
     padding-left: 20px !important;
 }
 
@@ -1430,7 +1430,7 @@ strong {
     padding-right: 16px !important;
 }
 
-.ExPadRXXl {
+.ExPadRXxl {
     padding-right: 20px !important;
 }
 
@@ -1440,22 +1440,27 @@ strong {
 
 .ExBdrWdtLgh {
     border-width: 0.5px !important;
+    border-style: solid;
 }
 
 .ExBdrWdtNml {
     border-width: 1px !important;
+    border-style: solid;
 }
 
 .ExBdrWdtMdm {
     border-width: 2px !important;
+    border-style: solid;
 }
 
 .ExBdrWdtSbd {
     border-width: 3px !important;
+    border-style: solid;
 }
 
 .ExBdrWdtBld {
     border-width: 4px !important;
+    border-style: solid;
 }
 
 .ExBdrRadNone {
@@ -1482,7 +1487,7 @@ strong {
     border-radius: 16px !important;
 }
 
-.ExBdrRadXXl {
+.ExBdrRadXxl {
     border-radius: 20px !important;
 }
 
@@ -1516,7 +1521,7 @@ strong {
     top: 16px;
 }
 
-.ExTXXl {
+.ExTXxl {
     top: 20px;
 }
 
@@ -1544,7 +1549,7 @@ strong {
     bottom: 16px;
 }
 
-.ExBXXl {
+.ExBXxl {
     bottom: 20px;
 }
 
@@ -1572,7 +1577,7 @@ strong {
     left: 16px;
 }
 
-.ExLXXl {
+.ExLXxl {
     left: 20px;
 }
 
@@ -1600,7 +1605,7 @@ strong {
     right: 16px;
 }
 
-.ExRXXl {
+.ExRXxl {
     right: 20px;
 }
 
