@@ -1,0 +1,27 @@
+{
+  "type": "box",
+  "layout": "vertical",
+  "justifyContent": "center",
+  "alignItems": "center",
+  "borderWidth": "1px",
+  "cornerRadius": "40px",
+  "spacing": "sm",
+  "borderColor": "#ffffff",
+  "backgroundColor": "${data.backgroundColor}",
+  "margin": "lg",
+  "height": "40px",
+  "action": {
+    "type": "uri",
+    "label": "action",
+    "uri": "${data.url}"
+  },
+  "contents": [
+    {
+      "type": "text",
+      "text": "${data.text}",
+      "color": "#ffffff",
+      "flex": 0,
+      "offsetTop": "-2px"
+    }
+  ]
+}

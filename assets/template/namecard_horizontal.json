@@ -1,0 +1,194 @@
+{
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "paddingAll": "0px",
+    "contents": [
+      {
+        "type": "image",
+        "url": "${data.backgroundUrl}",
+        "aspectMode": "cover",
+        "gravity": "center",
+        "size": "full",
+        "aspectRatio": "17:10"
+      },
+      {
+        "layout": "horizontal",
+        "paddingAll": "30px",
+        "width": "100%",
+        "height": "100%",
+        "alignItems": "center",
+        "type": "box",
+        "position": "absolute",
+        "backgroundColor": "${data.backgroundColor}",
+        "contents": [
+          {
+            "flex": "${data.leftFlex}",
+            "layout": "vertical",
+            "type": "box",
+            "action": {
+              "label": "action",
+              "type": "uri",
+              "uri": "${data.website}"
+            },
+            "contents": [
+              {
+                "aspectMode": "fit",
+                "size": "md",
+                "align": "center",
+                "type": "image",
+                "url": "${data.logo}"
+              },
+              {
+                "type": "text",
+                "text": "${data.company}",
+                "color": "${data.companyColor}",
+                "weight": "bold",
+                "size": "xs",
+                "align": "center"
+              },
+              {
+                "type": "text",
+                "text": "${data.companyEN}",
+                "color": "${data.companyColor}",
+                "size": "xxs",
+                "align": "center"
+              }
+            ]
+          },
+          {
+            "flex": "${data.rightFlex}",
+            "layout": "vertical",
+            "margin": "30px",
+            "spacing": "sm",
+            "type": "box",
+            "contents": [
+              {
+                "size": "xxs",
+                "text": "${data.jobTitle} ${data.jobTitleEN}",
+                "type": "text",
+                "color": "${data.textColor}",
+                "wrap": true
+              },
+              {
+                "size": "lg",
+                "text": "${data.name} ${data.nameEN}",
+                "type": "text",
+                "weight": "bold",
+                "color": "${data.nameColor}",
+                "wrap": true
+              },
+              {
+                "layout": "horizontal",
+                "margin": "lg",
+                "spacing": "md",
+                "type": "box",
+                "contents": [
+                  {
+                    "flex": 0,
+                    "layout": "vertical",
+                    "type": "box",
+                    "contents": [
+                      {
+                        "align": "center",
+                        "flex": 0,
+                        "size": "sm",
+                        "text": "✉",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "weight": "bold"
+                      },
+                      {
+                        "align": "center",
+                        "flex": 0,
+                        "size": "sm",
+                        "text": "📞",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "weight": "bold"
+                      },
+                      {
+                        "align": "center",
+                        "flex": 0,
+                        "size": "sm",
+                        "text": "🌐",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "weight": "bold"
+                      },
+                      {
+                        "align": "center",
+                        "flex": 0,
+                        "size": "sm",
+                        "text": "🏠",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "weight": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "layout": "vertical",
+                    "type": "box",
+                    "contents": [
+                      {
+                        "size": "sm",
+                        "text": "${data.email}",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "maxLines": 1,
+                        "action": {
+                          "label": "action",
+                          "type": "uri",
+                          "uri": "mailto:${data.email}"
+                        }
+                      },
+                      {
+                        "size": "sm",
+                        "text": "${data.phone}",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "maxLines": 1,
+                        "action": {
+                          "label": "action",
+                          "type": "uri",
+                          "uri": "tel:${data.phone}"
+                        }
+                      },
+                      {
+                        "size": "sm",
+                        "text": "${data.website}",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "maxLines": 1,
+                        "action": {
+                          "label": "action",
+                          "type": "uri",
+                          "uri": "${data.website}"
+                        }
+                      },
+                      {
+                        "size": "xs",
+                        "text": "${data.address}",
+                        "type": "text",
+                        "color": "${data.textColor}",
+                        "lineSpacing": "12px",
+                        "action": {
+                          "label": "action",
+                          "type": "uri",
+                          "uri": "https://www.google.com/maps/search/${data.address}"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

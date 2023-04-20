@@ -1,18 +1,34 @@
 {
-    "company": "公司名稱",
-    "companyEN": "Company Name",
-    "logo": "/images/background/sample-logo.png",
-    "name": "你的名字",
-    "nameEN": "Your Name",
-    "title": "你的職稱",
-    "titleEN": "Your Title",
-    "email": "example@mail.com",
-    "phone": "0123456789",
-    "address": "你的地址",
-    "addressEN": "Your Address",
-    "website": "https://yourwebsite.com",
-    "taxId": "12345678",
-    "textColor": "#606060",
-    "leftFlex": 1,
-    "rightFlex": 2
+  "company": "公司名稱",
+  "companyEN": "Company Name",
+  "logo": "/images/background/sample-logo.png",
+  "name": "你的名字",
+  "nameEN": "Your Name",
+  "jobTitle": "你的職稱",
+  "jobTitleEN": "Your Title",
+  "email": "example@mail.com",
+  "phone": "0123456789",
+  "address": "你的地址",
+  "addressEN": "Your Address",
+  "website": "https://yourwebsite.com",
+  "taxId": "12345678",
+  "textColor": "#ffffff",
+  "title": "標題",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "buttons": [
+    {
+      "text": "按鈕文字",
+      "url": "https://yourwebsite.com",
+      "backgroundColor": "#ffffff00"
+    },
+    {
+      "text": "按鈕文字",
+      "url": "https://yourwebsite.com",
+      "backgroundColor": "#ffffff00"
+    }
+  ],
+  "backgroundColor": "#6FAEAC",
+  "backgroundUrl": "/images/background/horizontal/background-16.png",
+  "leftFlex": 1,
+  "rightFlex": 2
 }
