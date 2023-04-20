@@ -17,12 +17,12 @@
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   "buttons": [
     {
-      "text": "按鈕文字",
+      "text": "按鈕",
       "url": "https://yourwebsite.com",
       "backgroundColor": "#ffffff00"
     },
     {
-      "text": "按鈕文字",
+      "text": "按鈕",
       "url": "https://yourwebsite.com",
       "backgroundColor": "#ffffff00"
     }

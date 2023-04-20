@@ -1,15 +1,19 @@
 import React from "react";
+import { MdOutlineAddCircleOutline, MdOutlineRemoveCircleOutline } from "react-icons/md";
 import { FormProvider, useForm } from "../../hooks/useForm";
 import { Input } from "./Input";
-import { MdOutlineAddCircleOutline, MdOutlineRemoveCircleOutline } from "react-icons/md";
 
 export default function ButtonList() {
   const [formData, setFormData] = useForm();
-  const { buttons } = require("../../assets/data/default.json");
+  let sampleButton = {
+    text: "按鈕",
+    url: "https://yourwebsite.com",
+    backgroundColor: "#ffffff00",
+  };
 
   const onButtonChange = (button, index) => {
     formData.buttons[index] = button;
-    setFormData({...formData, buttons: formData.buttons});
+    setFormData({ ...formData, buttons: formData.buttons });
   };
 
   return (
@@ -24,21 +28,33 @@ export default function ButtonList() {
               <MdOutlineAddCircleOutline size={20} style={{margin: "8 0"}} color="#407a9a" 
                 onClick={() => {
                   // Add a new button after the current button
-                  formData.buttons.splice(index + 1, 0, buttons[1]);
-                  setFormData({...formData, buttons: formData.buttons});
+                  formData.buttons.splice(index + 1, 0, { ...sampleButton });
+                  setFormData({ ...formData, buttons: formData.buttons });
                 }}
               />
               <MdOutlineRemoveCircleOutline size={20} color="#D24B4B" 
                 onClick={() => {
                   // Remove the current button
                   formData.buttons.splice(index, 1);
-                  setFormData({...formData, buttons: formData.buttons});
+                  setFormData({ ...formData, buttons: formData.buttons });
                 }}
               />
             </div>
           </div>
         </FormProvider>
       ))}
+      {formData.buttons.length == 0 && (
+        <center>
+          <button
+            onClick={() => {
+              formData.buttons.push({ ...sampleButton });
+              setFormData({ ...formData, buttons: formData.buttons });
+            }}
+          >
+            新增按鈕
+          </button>
+        </center>
+      )}
     </div>
   );
 }
