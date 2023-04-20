@@ -18,8 +18,8 @@ export default function CreateHorizontal() {
         </div>
         <Input label="公司Logo" field="logo" />
         <div className="row">
-          <Input label="職稱" field="title" />
-          <Input label="職稱(英文)" field="titleEN" />
+          <Input label="職稱" field="jobTitle" />
+          <Input label="職稱(英文)" field="jobTitleEN" />
           <Checkbox label="底色" field="highlightTitle" />
         </div>
         <div className="row">

@@ -45,7 +45,7 @@ export default function BackgroundSelector({
             </div>
           ))}
       </div>
-      <Input label="或輸入圖片網址：" field="backgroundUrl" />
+      <Input label="或輸入圖片連結：" field="backgroundUrl" />
     </div>
   );
 }

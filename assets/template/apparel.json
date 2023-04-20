@@ -1,0 +1,99 @@
+{
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "${data.backgroundUrl}",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "2:3",
+        "gravity": "top"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "position": "absolute",
+        "offsetBottom": "0px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "backgroundColor": "${data.backgroundColor}cc",
+        "paddingAll": "20px",
+        "paddingTop": "18px",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "${data.title}",
+                "size": "xl",
+                "color": "#ffffff",
+                "weight": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "${data.description}",
+            "color": "#ebebeb",
+            "size": "sm",
+            "flex": 0
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "borderWidth": "1px",
+            "cornerRadius": "40px",
+            "spacing": "sm",
+            "borderColor": "#ffffff",
+            "backgroundColor": "${data.buttonColor}",
+            "margin": "xxl",
+            "height": "40px",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "${data.url}"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "${data.buttonText}",
+                "color": "#ffffff",
+                "flex": 0,
+                "offsetTop": "-2px"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "position": "absolute",
+        "cornerRadius": "20px",
+        "offsetTop": "18px",
+        "backgroundColor": "${data.backgroundColor}",
+        "offsetStart": "18px",
+        "height": "25px",
+        "width": "53px",
+        "contents": [
+          {
+            "type": "text",
+            "text": "分享",
+            "color": "#ffffff",
+            "align": "center",
+            "size": "xs",
+            "offsetTop": "3px"
+          }
+        ]
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}

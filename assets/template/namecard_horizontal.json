@@ -67,7 +67,7 @@
             "contents": [
               {
                 "size": "xxs",
-                "text": "${data.title} ${data.titleEN}",
+                "text": "${data.jobTitle} ${data.jobTitleEN}",
                 "type": "text",
                 "color": "${data.textColor}",
                 "wrap": true
