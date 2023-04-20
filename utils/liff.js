@@ -60,7 +60,9 @@ export async function sendFlexMessage(message) {
   if (liff.isApiAvailable("shareTargetPicker")) {
     console.log("shareTargetPicker is available");
     try {
-      let res = await liff.shareTargetPicker(message);
+      let flex_message = require("../assets/template/flex_message.json");
+      flex_message[0].contents = message;
+      let res = await liff.shareTargetPicker(flex_message);
       if (res) {
         console.log(`[${res.status}] Message sent!`);
       } else {

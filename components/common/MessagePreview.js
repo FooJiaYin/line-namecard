@@ -21,6 +21,6 @@ export default function MessagePreview({ message, template, style, ...props }) {
     message = generateMessage(template, data);
   }
   return (
-    <div style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message[0]) }} {...props} />
+    <div style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message) }} {...props} />
   )
 }

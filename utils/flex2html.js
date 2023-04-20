@@ -5,19 +5,20 @@ export function flex2html(json) {
  
     if(json['type'] === 'flex') {
        json = json['contents']
-       if(json['type'] === 'bubble') {
-          result = bubble_object(json)
-          carousel = result
-         //  carousel = carousel.replace('<!-- inner -->', result)
-       } else if(json['type'] === 'carousel') {
-          json['contents'].forEach((obj, index) => {
-             let result = bubble_object(obj)
-             result = result.replace('<!-- content -->', '')
-             result = result.replace('<!-- inner -->', '')
-             carousel = carousel.replace('<!-- inner -->', result + '<!-- inner -->')
-          })
-       }
     }
+
+	 if(json['type'] === 'bubble') {
+    	result = bubble_object(json)
+      carousel = result
+      //  carousel = carousel.replace('<!-- inner -->', result)
+    } else if(json['type'] === 'carousel') {
+      json['contents'].forEach((obj, index) => {
+         let result = bubble_object(obj)
+         result = result.replace('<!-- content -->', '')
+         result = result.replace('<!-- inner -->', '')
+         carousel = carousel.replace('<!-- inner -->', result + '<!-- inner -->')
+    	})
+   }
     
     // document.getElementById(element).innerHTML += carousel
     return carousel
