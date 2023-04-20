@@ -1,3 +1,20 @@
+/**
+ * Convert LINE Flex message to HTML
+ * @param {*} json 
+ * @returns {string} HTML string
+ * @example
+ * ```js
+ * // React
+ * import { flex2html } from 'flex2html'
+ * <div dangerouslySetInnerHTML={{ __html: flex2html(flex_message) }} />
+ * // Vanilla JS
+ * <div id="element_id"></div>
+ * <script type="text/javascript" src="flex2html.js"></script>
+ * <script>
+ *    document.getElementById(element_id).innerHTML = flex2html(flex_message)
+ * </script>
+ * ```
+ */
 export function flex2html(json) {
     let carousel = carousel_struc()
     let result = ''
@@ -10,7 +27,6 @@ export function flex2html(json) {
 	 if(json['type'] === 'bubble') {
     	result = bubble_object(json)
       carousel = result
-      //  carousel = carousel.replace('<!-- inner -->', result)
     } else if(json['type'] === 'carousel') {
       json['contents'].forEach((obj, index) => {
          let result = bubble_object(obj)
@@ -20,7 +36,6 @@ export function flex2html(json) {
     	})
    }
     
-    // document.getElementById(element).innerHTML += carousel
     return carousel
  }
  

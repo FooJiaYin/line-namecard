@@ -10,6 +10,7 @@ export default function Hero() {
   const [message, setMessage] = useState({});
 
   useEffect(() => {
+    // Load sample message
     const sampleData = require("../../assets/data/sample.json");
     setMessage(generateMessage("namecard_horizontal", sampleData));
   }, []);

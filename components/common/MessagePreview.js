@@ -16,6 +16,8 @@ export default function MessagePreview({ message, template, style, ...props }) {
     maxWidth: "100%",
     ...style,
   };
+
+  // Generate message from data if message is not provided
   if (!message) {
     const [data, _] = useForm();
     message = generateMessage(template, data);

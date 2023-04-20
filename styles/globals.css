@@ -133,6 +133,8 @@ nav ul li a:hover::after {
 .row.wrap>div {
   flex: none;
 }
+
+/* Column in a row which only take the width of its child */
 .narrow, .row>div.narrow {
   min-width: max-content;
   flex: 0;

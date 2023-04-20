@@ -27,6 +27,7 @@
     background: linear-gradient(90deg, #cff5e7, #FFF, #cff5e7, #cff5e7);
 }
 
+/* Gradient animation when hover on title and description */
 .description,
 .title {
     -webkit-background-clip: text;
