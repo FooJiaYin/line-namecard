@@ -1,8 +1,8 @@
 import React from "react";
 import MessagePreview from "../../components/common/MessagePreview";
 import BackgroundSelector from "../../components/create/BackgroundSelector";
-import { Checkbox, Input } from "../../components/create/Input";
 import CreateForm from "../../components/create/CreateForm";
+import { Checkbox, Input } from "../../components/create/Input";
 
 export default function CreateHorizontal() {
   return (

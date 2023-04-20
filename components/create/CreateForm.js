@@ -1,11 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FormProvider } from "../../hooks/useForm";
 import { useLiff } from "../../hooks/useLiff";
 import { sendFlexMessage } from "../../utils/liff";
-import { generateMessage } from "../../utils/message";
 
 // form to generate namecard
 export default function CreateForm({ children }) {

@@ -1,7 +1,7 @@
 import React from "react";
+import { useForm } from "../../hooks/useForm";
 import { flex2html } from "../../utils/flex2html";
 import { generateMessage } from "../../utils/message";
-import { useForm } from "../../hooks/useForm";
 
 export default function MessagePreview({ message, template, style, ...props }) {
   const divStyle = {

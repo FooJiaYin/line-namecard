@@ -1,8 +1,8 @@
 import React from "react";
 import MessagePreview from "../../components/common/MessagePreview";
-import { Checkbox, Input } from "../../components/create/Input";
-import CreateForm from "../../components/create/CreateForm";
 import ButtonList from "../../components/create/ButtonList";
+import CreateForm from "../../components/create/CreateForm";
+import { Input } from "../../components/create/Input";
 
 export default function CreateApparel() {
   return (
