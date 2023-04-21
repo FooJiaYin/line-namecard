@@ -9,7 +9,8 @@ export function encodeData(template, data) {
   // Compress data to an array of values based on the order in the template
   data = compressToArray(template, { ...data });
   // Compress the array with gzip and encode to base64url
-  return zlib.gzipSync(JSON.stringify(data)).toString("base64url");
+  // return zlib.gzipSync(JSON.stringify(data)).toString("base64url"); // Unknown encoding: base64url
+  return zlib.gzipSync(JSON.stringify(data)).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }
 
 /**
@@ -79,7 +80,7 @@ function compressToArray(template, data) {
 function decompressFromArray(template, data) {
   // load json string from template
   const templateString = JSON.stringify(
-    require('/assets/template/' + template + '.json')
+    require("/assets/template/" + template + ".json")
   );
 
   let placeholder = new Set();
