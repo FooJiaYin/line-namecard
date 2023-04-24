@@ -12,8 +12,8 @@ export const Input = ({ label, field, type = "text", onChange, style, ...props }
       {label && <label>{label}</label>}
       <input
         type={type}
-        onChange={onChange || handleChange}
-        value={formData[field] || ""}
+        onChange={onChange ?? handleChange}
+        value={value ?? formData[field] ?? ""}
         {...props}
       />
     </div>
@@ -30,7 +30,7 @@ export const Checkbox = ({ field, ...props }) => {
   return (
     <Input
       type="checkbox"
-      checked={formData[field] || false}
+      checked={formData[field] ?? false}
       onChange={handleChange}
       {...props}
     />

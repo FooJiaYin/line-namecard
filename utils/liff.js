@@ -21,7 +21,7 @@ const getInitializedLiff = async ({
 }) => {
   const liff = await getLiff();
 
-  plugins.forEach((plugin) => registerLiffPlugin(liff, plugin));
+  plugins?.forEach((plugin) => registerLiffPlugin(liff, plugin));
   await liff.init(liffConfig);
   await callback(liff);
 

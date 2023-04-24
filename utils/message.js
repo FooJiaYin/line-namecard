@@ -23,8 +23,8 @@ export function generateMessage(templateName, data) {
 
   // Replace color with textColor if not specified
   if (data.textColor) {
-    dataCopy.companyColor = data.companyColor || data.textColor;
-    dataCopy.nameColor = data.nameColor || data.textColor;
+    dataCopy.companyColor = data.companyColor ?? data.textColor;
+    dataCopy.nameColor = data.nameColor ?? data.textColor;
   }
 
   // Replace background image path with absolute path
