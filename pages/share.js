@@ -1,11 +1,12 @@
 import Link from "next/dist/client/link";
+import Head from "next/dist/shared/lib/head";
 import React, { useEffect } from "react";
 import { FaPaperPlane, FaPen } from "react-icons/fa";
+import Row from "../components/layout/Row";
 import MessagePreview from "../components/common/MessagePreview";
 import { useLiff } from "../hooks/useLiff";
 import { sendFlexMessage } from "../utils/liff";
 import { getDataFromUrl, getUrl } from "../utils/route";
-import Head from "next/dist/shared/lib/head";
 
 export default function Share({ template, message, code, send }) {
   const { isLoggedIn, liff, isReady } = useLiff();
@@ -35,12 +36,12 @@ export default function Share({ template, message, code, send }) {
           message={message}
           style={{ maxWidth: 400, maxHeight: 400, marginBottom: "50px" }}
         />
-        <div className="row wrap" style={{ justifyContent: "center" }}>
+        <Row wrap style={{ justifyContent: "center" }}>
           <button onClick={sendMessage}>傳送 <FaPaperPlane size={12} /></button>
           <Link href={getUrl("create", template, { code })}>
             <button>編輯 <FaPen size={12} /></button>
           </Link>
-        </div>
+        </Row>
       </div>
     </div>
   );

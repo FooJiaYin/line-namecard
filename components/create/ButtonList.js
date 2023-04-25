@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAddCircleOutline, MdOutlineRemoveCircleOutline } from "react-icons/md";
 import { FormProvider, useForm } from "../../hooks/useForm";
+import Row from "../layout/Row";
 import { Input } from "./Input";
 
 export default function ButtonList() {
@@ -20,7 +21,7 @@ export default function ButtonList() {
     <div>
       {formData.buttons.map((button, index) => (
         <FormProvider value={[button, (e) => onButtonChange(e, index)]} key={index}>
-          <div className="row">
+          <Row>
             <Input label="按鈕文字" field="text" />
             <Input label="按鈕連結" field="url" />
             <Input label="按鈕顏色" field="backgroundColor" type="color"  className="narrow"/>
@@ -40,7 +41,7 @@ export default function ButtonList() {
                 }}
               />
             </div>
-          </div>
+          </Row>
         </FormProvider>
       ))}
       {formData.buttons.length == 0 && (
