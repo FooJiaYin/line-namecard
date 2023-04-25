@@ -1,4 +1,4 @@
-import { decodeData } from "./compress";
+import { decodeData, encodeData } from "./compress";
 import { generateMessage } from "./message";
 
 /**
@@ -12,14 +12,43 @@ import { generateMessage } from "./message";
  * ```
  */
 export async function getDataFromUrl(context) {
-  let { template, data, message } = context.query;
-  
-  if (template && data) {
-    data = decodeData(template, data);
+  let { template, code, data, message } = context.query;
+
+  if (template && code) {
+    data = decodeData(template, code);
     message = generateMessage(template, data);
+  } else {
+    // The code below fixes Error: Error serializing `.data` returned from `getServerSideProps`.
+    // Reason: `undefined` cannot be serialized as JSON. Please use `null` or omit this value.
+    data = null;
+    message = null;
   }
 
   return {
-    props: { template, data, message, url: context.resolvedUrl },
+    props: { ...context.query, data, message, url: context.resolvedUrl },
   };
+}
+
+/**
+ * Get url from template and data or code
+ * @param {string} mode 
+ * @param {string} template 
+ * @param {Object} { data, code } 
+ * @returns {string} url
+ * @example
+ * ```js
+ * const url = getUrl("create", "namecard-horizontal", { data: formData });
+ * // "https://line-namecard.netlify.app/create/namecard-horizontal?code=..."
+ * const url = getUrl("share", "namecard-horizontal", { code });
+ * // "https://line-namecard.netlify.app/share?template=namecard-horizontal&code=..."
+ * liff.login({ 
+ *     redirectUri: getUrl("send", "namecard-horizontal", { code })
+ *  });
+ * // "https://line-namecard.netlify.app/share/namecard-horizontal?code=...&send=1"
+ * ```
+ */
+export function getUrl(mode, template, { data, code }) {
+  code = code ?? encodeData(template, data);
+  let send = mode == "send" ? "&send=1" : "";
+  return process.env.LIFF_URL + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
 }
