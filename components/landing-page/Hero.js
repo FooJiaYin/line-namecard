@@ -29,7 +29,7 @@ export default function Hero() {
           <button className={styles.button}>開始製作</button>
         </Link>
       </div>
-      <MessagePreview className={styles.messagePreview} message={message} style={{ width: 425 }} />
+      <MessagePreview className={styles.messagePreview} message={message} style={{ width: 425 }} horizontal />
     </section>
   );
 }

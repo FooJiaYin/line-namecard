@@ -49,6 +49,7 @@
 /* Lift up animation when hover  */
 .messagePreview {
     transition: transform 0.5s ease;
+    margin: 0;
 }
 
 .messagePreview:hover {

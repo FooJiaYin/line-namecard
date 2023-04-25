@@ -2,18 +2,15 @@ import React from "react";
 import { useForm } from "../../hooks/useForm";
 import { flex2html } from "../../utils/flex2html";
 import { generateMessage } from "../../utils/message";
+import styles from "./MessagePreview.module.css";
 
-export default function MessagePreview({ message, template, style, ...props }) {
+export default function MessagePreview({ message, template, style, className, horizontal, ...props }) {
+  // Set horizontal to true if template contains "horizontal"
+  horizontal = horizontal ?? (template && template.includes("horizontal"));
+
   const divStyle = {
-    backgroundColor: "white",
-    boxShadow: "5px 5px 10px #0002",
-    borderRadius: "20px",
-    overflow: "hidden",
-    color: "#000",
-    // height: "fit-content",
-    aspectRatio: 1.7,
-    width: "100%",
-    maxWidth: "100%",
+    aspectRatio: horizontal ? "1.7" : "2/3",
+    width: (style.maxHeight || style.height) ? "auto" : "100%",
     ...style,
   };
 
@@ -23,6 +20,6 @@ export default function MessagePreview({ message, template, style, ...props }) {
     message = generateMessage(template, data);
   }
   return (
-    <div style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message) }} {...props} />
+    <div className={`${styles.default} ${className}`} style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message) }} {...props} />
   )
 }
