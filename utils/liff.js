@@ -28,7 +28,7 @@ const getInitializedLiff = async ({
   return liff;
 };
 
-export async function initLiff(props) {
+export async function initLiff(props = {}) {
     console.log("start liff.init()...");
     try {
         liff = await getInitializedLiff(props);
@@ -43,7 +43,7 @@ export async function initLiff(props) {
 }
 
 export async function login() {
-  if (!liff) await init();
+  if (!liff) await initLiff();
   
   liff.is = () => true;
   // if (!liff.isLoggedIn()) {
@@ -55,7 +55,7 @@ export async function login() {
 }
 
 export async function sendFlexMessage(message) {
-  if (!liff) await init();
+  if (!liff) liff = await initLiff();
 
   if (liff.isApiAvailable("shareTargetPicker")) {
     console.log("shareTargetPicker is available");
