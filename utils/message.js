@@ -19,6 +19,7 @@
 export function generateMessage(templateName, data) {
   // load json string from template
   const template = require(`../assets/template/${templateName}.json`);
+  const sampleData = require(`../assets/data/sample.json`);
   const dataCopy = { ...data };
 
   // Replace color with textColor if not specified
@@ -29,7 +30,7 @@ export function generateMessage(templateName, data) {
 
   // Replace background image path with absolute path
   if (data.backgroundUrl && data.backgroundUrl.startsWith("/images")) {
-    dataCopy.backgroundUrl = `${process.env.LIFF_URL}${data.backgroundUrl}`;
+    dataCopy.backgroundUrl = `${process.env.DOMAIN_URL}${data.backgroundUrl}`;
   }
 
   let message = JSON.stringify(template);
@@ -51,13 +52,13 @@ export function generateMessage(templateName, data) {
     // Convert to string and remove '[' & ']' in the beginning and the end
     dataCopy.buttons = JSON.stringify(dataCopy.buttons).slice(1, -1);
   }
-  
+
   // Replace all placeholder `${data.key}` with value from `data[key]`
   // For example, if `data` is { name: "John" }, then ${data.name} will be replaced with "John"
   message = message
     .replace(',"${data.buttons}"', dataCopy.buttons && `,${dataCopy.buttons}`)
-    .replace('"${data.flex}"', dataCopy.flexValue)
-    .replace(/\${data.(\w+)}/g, (match, key) => dataCopy[key])
-  
+    .replace(/\"\${data.(\w+)Flex}\"/g, (match, key) => dataCopy[key+'Flex'] && dataCopy[key+'Flex'].length > 0 ? dataCopy[key+'Flex'] : sampleData[key+'Flex'])
+    .replace(/\${data.(\w+)}/g, (match, key) => dataCopy[key]);
+
   return JSON.parse(message);
 }

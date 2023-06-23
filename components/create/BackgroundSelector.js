@@ -13,7 +13,7 @@ export default function BackgroundSelector({
   const [formData, setFormData] = useForm();
 
   function getBackgroundImagePath(imageId) {
-    return `${process.env.LIFF_URL}/images/background/${orientation}/background-${imageId}.png`;
+    return `${process.env.DOMAIN_URL}/images/background/${orientation}/background-${imageId}.png`;
   }
 
   return (

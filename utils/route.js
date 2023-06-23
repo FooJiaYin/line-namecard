@@ -4,7 +4,7 @@ import { generateMessage } from "./message";
 /**
  * `getServersideProps` function to get template, data and message from url
  * @param {*} context 
- * @returns {Object} { template, data, message, url }
+ * @returns {Object} { template, code, data, message, url }
  * @example
  * ```js
  * // pages/example.js
@@ -47,8 +47,8 @@ export async function getDataFromUrl(context) {
  * // "https://line-namecard.netlify.app/share/namecard-horizontal?code=...&send=1"
  * ```
  */
-export function getUrl(mode, template, { data, code }) {
+export function getUrl(mode, template, { data, code }, domain="LIFF_URL") {
   code = code ?? encodeData(template, data);
   let send = mode == "send" ? "&send=1" : "";
-  return process.env.LIFF_URL + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
+  return process.env[domain] + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
 }
