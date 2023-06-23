@@ -47,8 +47,8 @@ export async function getDataFromUrl(context) {
  * // "https://line-namecard.netlify.app/share/namecard-horizontal?code=...&send=1"
  * ```
  */
-export function getUrl(mode, template, { data, code }, domain="LIFF_URL") {
+export function getUrl(mode, template, { data, code }) {
   code = code ?? encodeData(template, data);
   let send = mode == "send" ? "&send=1" : "";
-  return process.env[domain] + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
+  return process.env.LIFF_URL + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
 }
