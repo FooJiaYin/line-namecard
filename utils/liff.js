@@ -69,10 +69,10 @@ export async function sendFlexMessage(message) {
         console.log("TargetPicker was closed!");
       }
     } catch (error) {
-      console.log("something wrong happen");
+      console.error(error.message)
     }
   } else {
-    console.log("shareTargetPicker is NOT available");
+    console.error("shareTargetPicker is NOT available");
   }
 }
 
