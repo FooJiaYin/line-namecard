@@ -17,7 +17,13 @@ export default function Share({ template, message, code, send }) {
 
   const sendMessage = () => {
     if (isLoggedIn) {
-      sendFlexMessage(message);
+      // Line in-app browser does not support shareTargetPicker
+      // Open in LIFF browser to send message
+      if (!liff.isInClient() && navigator.userAgent.includes("Line/")) {
+        window.open(getUrl("send", template, { code }), "_blank");
+      } else {
+        sendFlexMessage(message);
+      }
     } else {
       liff.login({
         redirectUri: getUrl("send", template, { code })

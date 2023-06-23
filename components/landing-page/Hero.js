@@ -21,7 +21,7 @@ export default function Hero() {
         <h1 className={styles.title}>MINE Card</h1>
         <p className={styles.description}>製作你的個人名片，並分享到 LINE</p>
         {!isLoggedIn && (
-          <button className={styles.button} onClick={() => liff.login()}>
+          <button className={styles.button} onClick={() => liff.login({ redirectUri: process.env.LIFF_URL })}>
             LINE 登入
           </button>
         )}

@@ -33,8 +33,14 @@ export default function CreateForm({ children, initialData }) {
 
   const send = async () => {
     if (isLoggedIn) {
-      let message = generateMessage(template, data);
-      await sendFlexMessage(message, template);
+      // Line in-app browser does not support shareTargetPicker
+      // Open in LIFF browser to send message
+      if (!liff.isInClient() && navigator.userAgent.includes("Line/")) {
+        window.open(getUrl("send", template, { code }), "_blank");
+      } else {
+        let message = generateMessage(template, data);
+        await sendFlexMessage(message, template);
+      }
     } else {
       liff.login({
         redirectUri: getUrl("send", template, { data })
