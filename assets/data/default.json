@@ -1,7 +1,7 @@
 {
   "company": "公司名稱",
   "companyEN": "Company Name",
-  "logo": "/images/background/sample-logo.png",
+  "logo": "https://line-namecard.netlify.app/images/background/sample-logo.png",
   "name": "你的名字",
   "nameEN": "Your Name",
   "jobTitle": "你的職稱",
