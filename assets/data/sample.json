@@ -15,5 +15,8 @@
     "textColor": "#2B3D7B",
     "leftFlex": "1",
     "rightFlex": "2",
+    "topFlex": "1",
+    "middleFlex": "1",
+    "bottomFlex": "1",
     "backgroundUrl": "/images/background/horizontal/background-9.png"
 }
