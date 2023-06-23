@@ -41,7 +41,8 @@ To enable Line login and sending messages, you need to register a LIFF app in th
 Edit `.env.local` file in the root directory of the project.
 ```env
 LIFF_ID = "Your LIFF ID which is aquired from LINE Dev Center"
-LIFF_URL = "Domain url of the app, eg: https://line-namecard.netlify.app"
+LIFF_URL = "Liff url of the app, eg: https://line-namecard.netlify.app"
+DOMAIN_URL = "Domain url of the app, eg: https://liff.line.me/<LIFF_ID>"
 ```
 - [How to add environment variables in local development](https://nextjs.org/docs/basic-features/environment-variables)
 - [How to add environment variables to Netlify](https://docs.netlify.com/environment-variables/get-started/)

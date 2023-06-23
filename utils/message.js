@@ -29,7 +29,7 @@ export function generateMessage(templateName, data) {
 
   // Replace background image path with absolute path
   if (data.backgroundUrl && data.backgroundUrl.startsWith("/images")) {
-    dataCopy.backgroundUrl = `${process.env.LIFF_URL}${data.backgroundUrl}`;
+    dataCopy.backgroundUrl = `${process.env.DOMAIN_URL}${data.backgroundUrl}`;
   }
 
   let message = JSON.stringify(template);
