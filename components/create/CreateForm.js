@@ -26,6 +26,9 @@ export default function CreateForm({ children, initialData }) {
         setData(decodeData(template, code));
       }
     }
+    if (!navigator.userAgent.includes("Line") && !(navigator && navigator.canShare && navigator.canShare())) {
+      setShareButtonText("複製連結");
+    }
   }, [router.query]);
 
   const send = async () => {
@@ -41,7 +44,9 @@ export default function CreateForm({ children, initialData }) {
 
   const share = () => {
     let url = getUrl("share", template, { data });
-    if (liff.getOS() != "web" && navigator.canShare()) {
+    if (liff.isInClient() || navigator.userAgent.includes("Line/")) {
+      window.open(`https://line.me/R/share?text=${encodeURIComponent(url)}`, "_blank");
+    } else if (liff.getOS() != 'web' && navigator.canShare && navigator.canShare()) {
       navigator.share({
         title: `與你分享我在 MINE Card 上的名片！`,
         // text: "MINE Card",
