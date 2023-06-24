@@ -18,7 +18,10 @@ export default function MessagePreview({ message, template, style, className, ho
   if (!message) {
     const [data, _] = useForm();
     message = generateMessage(template, data);
+  } else {
+    message = JSON.parse(JSON.stringify(message));
   }
+  
   return (
     <div className={`${styles.default} ${className}`} style={divStyle} dangerouslySetInnerHTML={{ __html: flex2html(message) }} {...props} />
   )
