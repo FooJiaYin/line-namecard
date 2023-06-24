@@ -34,6 +34,7 @@ export async function getDataFromUrl(context) {
  * @param {string} mode 
  * @param {string} template 
  * @param {Object} { data, code } 
+ * @param {string} domain: process.env.LIFF_URL or process.env.DOMAIN_URL
  * @returns {string} url
  * @example
  * ```js
@@ -42,13 +43,13 @@ export async function getDataFromUrl(context) {
  * const url = getUrl("share", "namecard-horizontal", { code });
  * // "https://line-namecard.netlify.app/share?template=namecard-horizontal&code=..."
  * liff.login({ 
- *     redirectUri: getUrl("send", "namecard-horizontal", { code })
+ *     redirectUri: getUrl("send", "namecard-horizontal", { code }, domain=process.env.DOMAIN_URL)
  *  });
  * // "https://line-namecard.netlify.app/share/namecard-horizontal?code=...&send=1"
  * ```
  */
-export function getUrl(mode, template, { data, code }) {
+export function getUrl(mode, template, { data, code }, domain=process.env.LIFF_URL) {
   code = code ?? encodeData(template, data);
   let send = mode == "send" ? "&send=1" : "";
-  return process.env.LIFF_URL + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
+  return domain + (mode == "create" ? `/create/${template}?code=${code}` : `/share?template=${template}&code=${code}${send}`);
 }

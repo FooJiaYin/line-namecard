@@ -26,7 +26,7 @@ export default function Share({ template, message, code, send }) {
       }
     } else {
       liff.login({
-        redirectUri: getUrl("send", template, { code })
+        redirectUri: getUrl("send", template, { code }, domain=process.env.LIFF_URL)
       });
     }
   };

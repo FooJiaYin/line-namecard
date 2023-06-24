@@ -43,7 +43,7 @@ export default function CreateForm({ children, initialData }) {
       }
     } else {
       liff.login({
-        redirectUri: getUrl("send", template, { data })
+        redirectUri: getUrl("send", template, { data }, process.env.DOMAIN_URL)
       });
     }
   };
