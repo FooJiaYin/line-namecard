@@ -21,14 +21,14 @@ const getInitializedLiff = async ({
 }) => {
   const liff = await getLiff();
 
-  plugins.forEach((plugin) => registerLiffPlugin(liff, plugin));
+  plugins?.forEach((plugin) => registerLiffPlugin(liff, plugin));
   await liff.init(liffConfig);
   await callback(liff);
 
   return liff;
 };
 
-export async function initLiff(props) {
+export async function initLiff(props = {}) {
     console.log("start liff.init()...");
     try {
         liff = await getInitializedLiff(props);
@@ -43,7 +43,7 @@ export async function initLiff(props) {
 }
 
 export async function login() {
-  if (!liff) await init();
+  if (!liff) await initLiff();
   
   liff.is = () => true;
   // if (!liff.isLoggedIn()) {
@@ -55,7 +55,7 @@ export async function login() {
 }
 
 export async function sendFlexMessage(message) {
-  if (!liff) await init();
+  if (!liff) liff = await initLiff();
 
   if (liff.isApiAvailable("shareTargetPicker")) {
     console.log("shareTargetPicker is available");
@@ -69,10 +69,10 @@ export async function sendFlexMessage(message) {
         console.log("TargetPicker was closed!");
       }
     } catch (error) {
-      console.log("something wrong happen");
+      console.error(error.message)
     }
   } else {
-    console.log("shareTargetPicker is NOT available");
+    console.error("shareTargetPicker is NOT available");
   }
 }
 

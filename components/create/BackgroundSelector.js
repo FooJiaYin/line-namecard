@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Row from "../../components/layout/Row";
 import { useForm } from "../../hooks/useForm";
 import { Input } from "./Input";
 
@@ -12,13 +13,13 @@ export default function BackgroundSelector({
   const [formData, setFormData] = useForm();
 
   function getBackgroundImagePath(imageId) {
-    return `${process.env.LIFF_URL}/images/background/${orientation}/background-${imageId}.png`;
+    return `${process.env.DOMAIN_URL}/images/background/${orientation}/background-${imageId}.png`;
   }
 
   return (
     <div>
       <label>選擇背景：</label>
-      <div className="row wrap" {...props}>
+      <Row wrap {...props}>
         {Array(imageCount)
           .fill(0)
           .map((_, j) => (
@@ -44,7 +45,7 @@ export default function BackgroundSelector({
               />
             </div>
           ))}
-      </div>
+      </Row>
       <Input label="或輸入圖片連結：" field="backgroundUrl" />
     </div>
   );

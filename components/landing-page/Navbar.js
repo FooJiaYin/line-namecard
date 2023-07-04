@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
-  // Responsive navbar
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {

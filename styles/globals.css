@@ -133,6 +133,8 @@ nav ul li a:hover::after {
 .row.wrap>div {
   flex: none;
 }
+
+/* Column in a row which only take the width of its child */
 .narrow, .row>div.narrow {
   min-width: max-content;
   flex: 0;
@@ -145,6 +147,16 @@ nav ul li a:hover::after {
   }
 }
 
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle.full {
+  min-height: 100vh;
+}
 /* Button hover animation gradient background */
 button {
   background-color: #2B3D7B;
@@ -167,7 +179,7 @@ button:hover {
 }
 
 /* css input style bootstrap */
-input {
+input, select {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;

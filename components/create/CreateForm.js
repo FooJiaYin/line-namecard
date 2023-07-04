@@ -5,24 +5,70 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FormProvider } from "../../hooks/useForm";
 import { useLiff } from "../../hooks/useLiff";
 import { sendFlexMessage } from "../../utils/liff";
+import { useRouter } from "next/dist/client/router";
+import { decodeData } from "../../utils/compress";
+import { getUrl } from "../../utils/route";
 import { generateMessage } from "../../utils/message";
 
 // form to generate namecard
-export default function CreateForm({ children }) {
+export default function CreateForm({ children, initialData }) {
+  const router = useRouter();
   const { isLoggedIn, liff } = useLiff();
-  const [message, setMessage] = useState("");
-  const [data, setData] = useState(require("../../assets/data/default.json"));
+  const [sharebuttonText, setShareButtonText] = useState("分享連結");
+  const [data, setData] = useState(initialData ?? require("/assets/data/default.json"));
+  let template = router.query.template ?? router.asPath.split("/").pop().split("?")[0] ?? "apparel";
 
-  const send = () => {
+  useEffect(() => {
+    // get data from router query
+    if (!initialData) {
+      let { code } = router.query;
+      if (code) {
+        setData(decodeData(template, code));
+      }
+    }
+    if (!navigator.userAgent.includes("Line") && !(navigator && navigator.canShare && navigator.canShare())) {
+      setShareButtonText("複製連結");
+    }
+  }, [router.query]);
+
+  const send = async () => {
     if (isLoggedIn) {
-      sendFlexMessage(message);
+      // Line in-app browser does not support shareTargetPicker
+      // Open in LIFF browser to send message
+      if (!liff.isInClient() && navigator.userAgent.includes("Line/")) {
+        window.open(getUrl("send", template, { code }), "_blank");
+      } else {
+        let message = generateMessage(template, data);
+        await sendFlexMessage(message, template);
+      }
     } else {
-      liff.login();
+      liff.login({
+        redirectUri: getUrl("send", template, { data }, process.env.DOMAIN_URL)
+      });
+    }
+  };
+
+  const share = () => {
+    let url = getUrl("share", template, { data });
+    if (liff.isInClient() || navigator.userAgent.includes("Line/")) {
+      window.open(`https://line.me/R/share?text=${encodeURIComponent(url)}`, "_blank");
+    } else if (liff.getOS() != 'web' && navigator.canShare && navigator.canShare()) {
+      navigator.share({
+        title: `與你分享我在 MINE Card 上的名片！`,
+        // text: "MINE Card",
+        url
+      });
+    } else {
+      navigator.clipboard.writeText(url);
+      setShareButtonText("已複製！");
+      setTimeout(() => {
+        setShareButtonText("分享連結");
+      }, 2000);
     }
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+    <div className="middle full">
       <Head>
         <title>製作名片 - MINE Card</title>
       </Head>
@@ -36,13 +82,19 @@ export default function CreateForm({ children }) {
       <FormProvider value={[data, setData]}>
         <div
           className="row padded br-md"
-          style={{ alignItems: "center", padding: 20, height: "100%" }}
+          style={{
+            alignItems: "center",
+            padding: 20,
+            height: "100%",
+            width: "100%"
+          }}
         >
           {children}
         </div>
-        <center>
-          <button onClick={() => send()}>傳送</button>
-        </center>
+        <div className="row wrap" style={{ justifyContent: "center" }}>
+          <button onClick={send}>傳送</button>
+          <button onClick={share}>{sharebuttonText}</button>
+        </div>
       </FormProvider>
     </div>
   );

@@ -42,6 +42,9 @@ const createLiffProvider = (context) => {
 
     useEffect(() => {
       (async () => {
+        if (navigator.userAgent.includes("Line/")) {
+          window.open(window.location.href.replace(process.env.DOMAIN_URL, process.env.LIFF_URL), "_blank");
+        }
         try {
           setLiff(await initLiff(rest));
           setIsReady(true);

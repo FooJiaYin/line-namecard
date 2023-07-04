@@ -1,6 +1,6 @@
 import { useForm } from "../../hooks/useForm";
 
-export const Input = ({ label, field, type = "text", onChange, style, ...props }) => {
+export const Input = ({ label, field, type = "text", onChange, style, className, value, ...props }) => {
   const [formData, setFormData] = useForm();
 
   const handleChange = (event) => {
@@ -8,12 +8,12 @@ export const Input = ({ label, field, type = "text", onChange, style, ...props }
   };
 
   return (
-    <div style={style}>
+    <div style={style} className={className}>
       {label && <label>{label}</label>}
       <input
         type={type}
-        onChange={onChange || handleChange}
-        value={formData[field] || ""}
+        onChange={onChange ?? handleChange}
+        value={value ?? formData[field] ?? ""}
         {...props}
       />
     </div>
@@ -30,8 +30,9 @@ export const Checkbox = ({ field, ...props }) => {
   return (
     <Input
       type="checkbox"
-      checked={formData[field] || false}
+      checked={formData[field] ?? false}
       onChange={handleChange}
+      className="narrow"
       {...props}
     />
   );

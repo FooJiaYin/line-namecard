@@ -1,6 +1,11 @@
 [build]
   command = "yarn install && yarn build"
-  publish = "out"
+  publish = ".next"
 
 [template.environment]
   LIFF_ID = "Your LIFF ID which is aquired from LINE Dev Center"
+  LIFF_URL = "Liff url of the app, eg: https://line-namecard.netlify.app"
+  DOMAIN_URL = "Domain url of the app"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

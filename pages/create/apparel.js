@@ -1,8 +1,9 @@
 import React from "react";
 import MessagePreview from "../../components/common/MessagePreview";
-import { Checkbox, Input } from "../../components/create/Input";
-import CreateForm from "../../components/create/CreateForm";
 import ButtonList from "../../components/create/ButtonList";
+import CreateForm from "../../components/create/CreateForm";
+import { Input } from "../../components/create/Input";
+import Row from "../../components/layout/Row";
 
 export default function CreateApparel() {
   return (
@@ -12,10 +13,10 @@ export default function CreateApparel() {
         <Input label="內文" field="description" />
         <Input label="背景圖片連結（3:2）" field="backgroundUrl" />
         <ButtonList />
-        <div className="row">
+        <Row>
           <Input label="背景顏色" field="backgroundColor" type="color" />
           <Input label="字體顏色" field="textColor" type="color" />
-        </div>
+        </Row>
       </div>
       <div style={{ flex: 1 }}>
         <label>預覽</label>
